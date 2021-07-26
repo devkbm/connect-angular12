@@ -1,0 +1,66 @@
+<nz-page-header (nzBack)="goBack()" nzBackIcon nzTitle="권한 등록" nzSubtitle="This is a subtitle"> </nz-page-header>
+
+<div nz-row class="btn-group">
+    <div nz-col [nzSpan]="12">
+        <nz-input-group nzSearch [nzAddOnBefore]="addOnBeforeTemplate" [nzSuffix]="suffixIconSearch">
+            <input type="text" [(ngModel)]="queryValue" nz-input placeholder="input search text" (keyup.enter)="getAuthorityList()">
+        </nz-input-group>
+        <ng-template #addOnBeforeTemplate>
+            <nz-select [(ngModel)]="queryKey">
+                <nz-option [nzLabel]="'권한'" [nzValue]="'authority'"></nz-option>
+                <nz-option [nzLabel]="'설명'" [nzValue]="'description'"></nz-option>
+            </nz-select>
+            </ng-template>
+        <ng-template #suffixIconSearch>
+            <i nz-icon nzType="search"></i>
+        </ng-template>
+    </div>
+
+    <div nz-col [nzSpan]="12" style="text-align: right;">
+        <button nz-button (click)="getAuthorityList()">
+            <i nz-icon nzType="search" theme="outline"></i>
+            조회
+        </button>
+        <nz-divider nzType="vertical"></nz-divider>
+        <button nz-button (click)="initForm()">
+            <i nz-icon nzType="form" theme="outline"></i>
+            신규
+        </button>
+        <nz-divider nzType="vertical"></nz-divider>
+        <button nz-button nzDanger
+            nz-popconfirm nzPopconfirmTitle="삭제하시겠습니까?"
+            (nzOnConfirm)="deleteAuthority()" (nzOnCancel)="false">
+            <i nz-icon nzType="delete" theme="outline"></i>
+            삭제
+        </button>
+    </div>
+</div>
+
+<h3 class="pgm-title">권한 목록</h3>
+
+<div class="grid-wrapper">
+    <app-authority-grid
+        id="authGrid"
+        #authGrid
+        (rowSelected)="selectedItem($event)"
+        (editButtonClicked)="editDrawOpen($event)"
+        (rowDoubleClicked)="editDrawOpen($event)">
+    </app-authority-grid>
+</div>
+
+
+<nz-drawer
+    [nzBodyStyle]="{ height: 'calc(100% - 55px)', overflow: 'auto', 'padding-bottom':'53px', background: '#e2e1e0'}"
+    [nzMaskClosable]="true"
+    [nzWidth]="720"
+    [nzVisible]="drawerVisible"
+    nzTitle="권한 등록"
+    (nzOnClose)="closeDrawer()">
+    <app-authority-form
+        id="authForm"
+        #authForm
+        (formSaved)="getAuthorityList()"
+        (formDeleted)="getAuthorityList()"
+        (formClosed)="closeDrawer()">
+    </app-authority-form>
+</nz-drawer>

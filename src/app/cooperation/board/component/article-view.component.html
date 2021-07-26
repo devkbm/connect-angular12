@@ -1,0 +1,8 @@
+<nz-page-header nzTitle="제목" [nzSubtitle]="article?.title"> 
+    <nz-page-header-content>
+        {{article?.fromDate}}
+    </nz-page-header-content>
+</nz-page-header>
+
+<div [innerHTML]="article?.contents">  
+</div>

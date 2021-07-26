@@ -1,0 +1,181 @@
+{{fg.value | json}}
+<!--{{fileList | json}}-->
+<form nz-form [formGroup]="fg" nzLayout="vertical">
+
+  <!-- 1 row -->
+  <div nz-row nzGutter="8" nzJustify="space-around" nzAlign="middle">
+    <div nz-col nzSpan="4">
+      <app-user-image-upload
+        [userId]="this.fg.get('userId')?.value"
+        [imageUploadParam]="imageUploadParam"
+        [imageBase64]="imageBase64">
+      </app-user-image-upload>
+    </div>
+
+    <div nz-col nzSpan="20">
+      <div nz-row nzGutter="8">
+        <div nz-col nzSpan="3">
+          <!--사용여부 필드-->
+          <nz-form-item>
+            <nz-form-label nzFor="enabled" [nzXs]="formLabelXs" [nzSm]="formLabelSm">
+              사용여부
+            </nz-form-label>
+            <nz-form-control [nzXs]="formControlXs" [nzSm]="formControlSm">
+              <!--<label id="enabled" nz-checkbox formControlName="enabled"></label>-->
+              <nz-switch formControlName="enabled"></nz-switch>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+        <div nz-col nzSpan="10">
+          <!--아이디 필드-->
+          <nz-form-item>
+            <nz-form-label nzFor="userId" nzRequired [nzXs]="formLabelXs" [nzSm]="formLabelSm">
+                아이디
+            </nz-form-label>
+            <nz-form-control nzHasFeedback [nzXs]="formControlXs" [nzSm]="formControlSm" [nzErrorTip]="errorTpl">
+                <input nz-input id="userId" formControlName="userId" placeholder="아이디를 입력해주세요.">
+                <ng-template #errorTpl let-control>
+                  <ng-container *ngIf="control.hasError('required')">
+                      필수 입력 값입니다.
+                  </ng-container>
+                  <ng-container *ngIf="control.hasError('exists')">
+                      기존 아이디가 존재합니다.
+                  </ng-container>
+                </ng-template>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+
+        <div nz-col nzSpan="11">
+          <!--이름 필드-->
+          <nz-form-item>
+            <nz-form-label nzFor="name" nzRequired [nzXs]="formLabelXs" [nzSm]="formLabelSm">
+                이름
+            </nz-form-label>
+
+            <nz-form-control [nzXs]="formControlXs" [nzSm]="formControlSm" nzHasFeedback [nzErrorTip]="errorTpl">
+                <input style="ime-mode: inactive" id="name" nz-input formControlName="name">
+                <ng-template #errorTpl let-control>
+                  <ng-container *ngIf="control.hasError('required')">
+                      필수 입력 값입니다.
+                  </ng-container>
+                </ng-template>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+      </div>
+
+      <div nz-row nzGutter="8">
+        <div nz-col nzSpan="12">
+          <!--핸드폰번호 필드-->
+          <nz-form-item>
+              <nz-form-label nzFor="mobileNum" [nzXs]="formLabelXs" [nzSm]="formLabelSm">
+                  핸드폰 번호
+              </nz-form-label>
+
+              <nz-form-control [nzXs]="formControlXs" [nzSm]="formControlSm" nzHasFeedback>
+                  <input style="ime-mode: inactive" id="mobileNum" nz-input formControlName="mobileNum">
+              </nz-form-control>
+          </nz-form-item>
+        </div>
+        <div nz-col nzSpan="12">
+          <!--이메일 필드-->
+          <nz-form-item>
+            <nz-form-label nzFor="email" [nzXs]="formLabelXs" [nzSm]="formLabelSm">
+              이메일
+            </nz-form-label>
+
+            <nz-form-control [nzXs]="formControlXs" [nzSm]="formControlSm" nzHasFeedback>
+              <input style="ime-mode: inactive" id="email" nz-input formControlName="email">
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!--<nz-divider nzPlain nzText="기타정보" nzOrientation="left"></nz-divider>-->
+
+  <div nz-row nzGutter="8">
+    <div nz-col nzSpan="12">
+      <!--권한 필드-->
+      <nz-form-item>
+        <nz-form-label nzFor="authorityList"
+            [nzXs]="formLabelXs" [nzSm]="formLabelSm">
+            권한
+        </nz-form-label>
+
+        <nz-form-control [nzXs]="formControlXs" [nzSm]="formControlSm">
+          <nz-select formControlName="authorityList" [nzSize]="'default'" nzMode="multiple" nzPlaceHolder="Please select">
+            <nz-option *ngFor="let option of authList" [nzLabel]="option.description" [nzValue]="option.authority"></nz-option>
+          </nz-select>
+        </nz-form-control>
+
+        <app-form-item-select [itemId]="'formauth'" [labelText]="'권한'" formControlName="authorityList" [options]="authList" [value]="'authority'" [label]="'description'" >
+
+        </app-form-item-select>
+      </nz-form-item>
+    </div>
+
+    <div nz-col nzSpan="12">
+      <!--메뉴그룹 필드-->
+      <nz-form-item>
+        <nz-form-label nzFor="menuGroupList"
+            [nzXs]="formLabelXs" [nzSm]="formLabelSm">
+            메뉴그룹
+        </nz-form-label>
+
+        <nz-form-control [nzXs]="formControlXs" [nzSm]="formControlSm">
+            <nz-select formControlName="menuGroupList" [nzSize]="'default'" nzMode="multiple" nzPlaceHolder="Please select">
+                <nz-option *ngFor="let option of menuGroupList" [nzLabel]="option.menuGroupName" [nzValue]="option.menuGroupCode"></nz-option>
+            </nz-select>
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+
+  </div>
+
+    <!--부서 필드-->
+    <nz-form-item class="form-item">
+            <nz-form-label
+                nzFor="deptCode"
+                [nzXs]="formLabelXs" [nzSm]="formLabelSm">
+                부서
+            </nz-form-label>
+
+            <nz-form-control [nzXs]="formControlXs" [nzSm]="formControlSm" >
+                <nz-tree-select
+                    id="deptCode"
+                    [nzNodes]="deptHierarchy"
+                    [nzAllowClear]="true"
+                    [nzPlaceHolder]="'부서 없음'"
+                    formControlName="deptCode">
+                </nz-tree-select>
+            </nz-form-control>
+        </nz-form-item>
+
+
+</form>
+
+<div class="footer">
+  <button nz-button (click)="closeForm()">
+      <i nz-icon nzType="close" theme="outline"></i>
+      닫기
+  </button>
+  <nz-divider nzType="vertical"></nz-divider>
+  <button nz-button nzType="primary"
+      nz-popconfirm nzPopconfirmTitle="저장하시겠습니까?"
+      (nzOnConfirm)="registerUser()" (nzOnCancel)="false">
+      <i nz-icon nzType="save" theme="outline"></i>
+      저장
+  </button>
+  <nz-divider nzType="vertical"></nz-divider>
+  <button nz-button nzDanger="true"
+      nz-popconfirm nzPopconfirmTitle="삭제하시겠습니까?"
+      (nzOnConfirm)="deleteUser(this.fg.get('userId')?.value)" (nzOnCancel)="false">
+      <i nz-icon nzType="delete" theme="outline"></i>
+      삭제
+  </button>
+</div>

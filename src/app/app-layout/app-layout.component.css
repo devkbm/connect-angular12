@@ -1,0 +1,60 @@
+.logo {
+    width: 200px;
+    height: 60px;
+    background-color: tomato;
+    color: black;
+    float: left;
+    align-content: center;
+    text-align: center;
+
+}
+
+.sidebar {
+    background: black;
+    height: calc(100vh - 92px);
+}
+
+.sidemenugroup {
+    width: 200px;
+}
+
+.header {
+    height: 60px;
+    padding: 0;
+    margin: 0;
+    align-content: center;
+    vertical-align: middle;
+}
+
+.collapse-icon {
+    margin-top: 16px;
+    margin-left: 5px;
+    font-size: 24px;
+    color:rgb(185, 173, 159);
+    vertical-align: top;
+}
+
+.avatar {
+    float: right;
+    margin-top: 6px;
+    margin-right: 20px;
+    vertical-align: top;
+}
+
+.main-content {
+    margin: 12px 12px 0px 12px;
+    background-color: black;
+    height: calc(100vh - 108px);
+    width: auto;
+    overflow-y: auto;
+}
+
+.footer {
+    position: sticky;
+    margin: 0px;
+    padding: 8px;
+    height: 36px;
+    text-align: center;
+    vertical-align: middle;
+    background-color: green;
+}

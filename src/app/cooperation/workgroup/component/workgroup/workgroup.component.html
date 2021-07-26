@@ -1,0 +1,70 @@
+<button 
+    nz-button         
+    (click)="getMyWorkGroupList()">
+    <i nz-icon nzType="search" theme="outline"></i>
+    조회
+</button>
+
+<button 
+    nz-button         
+    (click)="newWorkGroup()">
+    <i nz-icon nzType="form" theme="outline"></i>
+    신규 작업그룹
+</button>
+
+<button 
+    nz-button         
+    (click)="newSchedule()">
+    <i nz-icon nzType="form" theme="outline"></i>
+    신규 스케쥴
+</button>
+
+<div class="grid-wrapper">
+    <app-myworkgroup-grid 
+        #myWorkGroupGrid         
+        (rowSelected)="workGroupSelect($event)"
+        (rowDoubleClicked)="modifyWorkGroup($event)">
+    </app-myworkgroup-grid>
+    
+    <app-work-calendar 
+        #workCalendar        
+        [fkWorkGroup]="workGroupId"
+        (itemSelected)="itemSelect($event)"
+        (newDateSelected)="newSchedule2($event)">
+    </app-work-calendar>
+    
+</div>
+
+
+<nz-drawer
+    [nzBodyStyle]="{ height: 'calc(100% - 55px)', overflow: 'auto', 'padding-bottom':'53px' }"
+    [nzMaskClosable]="true"
+    [nzWidth]="720"
+    [nzVisible]="scheduleDrawerVisible"
+    nzTitle="스케쥴 등록"
+    (nzOnClose)="closeScheduleDrawer()">
+    
+    <app-work-schedule-form 
+        #workScheduleForm
+        (formSaved)="getScheduleList()"
+        (formDeleted)="getScheduleList()"
+        (formClosed)="closeScheduleDrawer()">
+        
+    </app-work-schedule-form>
+</nz-drawer>
+
+<nz-drawer
+    [nzBodyStyle]="{ height: 'calc(100% - 55px)', overflow: 'auto', 'padding-bottom':'53px' }"
+    [nzMaskClosable]="true"
+    [nzWidth]="720"
+    [nzVisible]="workGroupDrawerVisible"
+    nzTitle="작업그룹 등록"
+    (nzOnClose)="closeWorkGroupDrawer()">
+    
+    <app-workgroup-form 
+        #workGroupForm 
+        (formSaved)="getMyWorkGroupList()"
+        (formDeleted)="getMyWorkGroupList()"
+        (formClosed)="closeWorkGroupDrawer()">
+    </app-workgroup-form>    
+</nz-drawer>

@@ -1,0 +1,12 @@
+<nz-select                    
+    nzShowSearch    
+    [formControlName]="formControlName"
+    [style.width]="width"
+    [nzSize]="'default'"    
+    nzPlaceHolder="Please select">
+    <nz-option
+        *ngFor="let option of deptList"
+        [nzLabel]="option.deptNameKorean + '[' + option.deptCode + ']'"
+        [nzValue]="option.deptCode">
+    </nz-option>
+</nz-select>    

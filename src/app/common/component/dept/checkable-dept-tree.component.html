@@ -1,0 +1,15 @@
+<!--
+<button (click)="getCommonCodeHierarchy()">
+    조회
+</button>
+-->
+{{defaultCheckedKeys}}
+<nz-tree
+    #treeComponent
+    nzCheckable
+    [nzData]="nodeItems"    
+    [nzCheckedKeys]="defaultCheckedKeys"
+    [nzSearchValue]="searchValue"
+    (nzCheckBoxChange)="nzCheck($event)"
+    (nzClick)="nzClick($event)">        
+</nz-tree>

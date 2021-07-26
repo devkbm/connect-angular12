@@ -1,0 +1,61 @@
+{{fg.value | json}}
+<form nz-form [formGroup]="fg" nzLayout="vertical">
+  <div class="card-1">
+    <!--권한 필드(신규)-->
+    <nz-form-item>
+      <nz-form-label nzFor="authority" nzRequired [nzXs]="defaultLabelSize.xs" [nzSm]="defaultLabelSize.sm">권한</nz-form-label>
+      <nz-form-control nzHasFeedback [nzXs]="defaultControlSize.xs" [nzSm]="defaultControlSize.sm" [nzErrorTip]="errorTpl">
+        <input nz-input id="authority" formControlName="authority" placeholder="권한코드를 입력해주세요." nzSize="small">
+        <ng-template #errorTpl let-control>
+          <ng-container *ngIf="control.hasError('required')">
+            필수 입력 값입니다.
+          </ng-container>
+          <ng-container *ngIf="control.hasError('exists')">
+            기존 코드가 존재합니다.
+          </ng-container>
+        </ng-template>
+      </nz-form-control>
+    </nz-form-item>
+
+    <!--설명 필드-->
+    <nz-form-item>
+        <nz-form-label nzFor="description" [nzXs]="defaultLabelSize.xs" [nzSm]="defaultLabelSize.sm">설명</nz-form-label>
+        <nz-form-control [nzXs]="defaultControlSize.xs" [nzSm]="defaultControlSize.sm">
+            <textarea nz-input id="description" formControlName="description" placeholder="권한에 대한 설명을 입력해주세요." [nzAutosize]="{ minRows: 10, maxRows: 20 }"></textarea>
+        </nz-form-control>
+    </nz-form-item>
+  </div>
+</form>
+
+<!--
+<div class="footer">
+  <button nz-button (click)="closeForm()">
+    <i nz-icon nzType="close" theme="outline"></i>
+    닫기
+  </button>
+  <nz-divider nzType="vertical"></nz-divider>
+  <button nz-button nzType="primary"
+    nz-popconfirm nzPopconfirmTitle="저장하시겠습니까?"
+    (nzOnConfirm)="saveAuthority()" (nzOnCancel)="false">
+    <i nz-icon nzType="save" theme="outline"></i>
+    저장
+  </button>
+  <nz-divider nzType="vertical"></nz-divider>
+  <button nz-button nzType="danger"
+    nz-popconfirm nzPopconfirmTitle="삭제하시겠습니까?"
+    (nzOnConfirm)="deleteAuthority()" (nzOnCancel)="false">
+    <i nz-icon nzType="delete" theme="outline"></i>
+    삭제
+  </button>
+</div>
+-->
+
+
+
+<div class="footer">
+<app-form-crud-button-group
+  (closeClick)="closeForm()"
+  (saveClick)="saveAuthority()"
+  (deleteClick)="deleteAuthority()">
+</app-form-crud-button-group>
+</div>

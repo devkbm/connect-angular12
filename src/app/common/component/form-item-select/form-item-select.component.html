@@ -1,0 +1,20 @@
+<nz-form-item>
+  <nz-form-label [nzFor]="itemId" [nzRequired]="required">
+    {{labelText}}
+  </nz-form-label>
+  <nz-form-control [nzErrorTip]="errorTpl">
+    <nz-select
+        [nzId]="itemId"
+        [(ngModel)]="_value"
+        [nzDisabled]="disabled"
+        [nzPlaceHolder]="placeholder"
+        nzShowSearch
+        (blur)="onTouched($event)"
+        (ngModelChange)="changeFn($event)">
+      <nz-option *ngFor="let option of options"
+        [nzLabel]="option[label]"
+        [nzValue]="option[value]">
+      </nz-option>
+    </nz-select>
+  </nz-form-control>
+</nz-form-item>

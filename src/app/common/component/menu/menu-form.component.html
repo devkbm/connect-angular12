@@ -1,0 +1,216 @@
+{{fg.value | json}}
+<form nz-form [formGroup]="fg" nzLayout="vertical">
+
+  <!-- 1 Row -->
+  <div nz-row nzGutter="8">
+    <div nz-col nzSpan="12">
+      <!--메뉴그룹코드 필드-->
+      <nz-form-item>
+        <nz-form-label
+            nzFor="menuGroupCode" nzRequired
+            [nzXs]="formLabelXs" [nzSm]="formLabelSm">
+            메뉴그룹코드
+        </nz-form-label>
+
+        <nz-form-control [nzXs]="formControlXs" [nzSm]="formControlSm">
+          <nz-select
+              id="menuGroupCode"
+              formControlName="menuGroupCode"
+              nzShowSearch
+              [nzSize]="'default'"
+              nzPlaceHolder="Please select"
+              (ngModelChange)="selectMenuGroup($event)">
+              <nz-option
+                  *ngFor="let option of menuGroupList"
+                  [nzLabel]="option.menuGroupName"
+                  [nzValue]="option.menuGroupCode">
+              </nz-option>
+          </nz-select>
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+
+    <div nz-col nzSpan="12">
+      <!--상위메뉴코드 필드-->
+      <nz-form-item>
+        <nz-form-label
+            nzFor="parentMenuCode"
+            [nzXs]="formLabelXs" [nzSm]="formLabelSm">
+            상위 메뉴코드
+        </nz-form-label>
+
+        <nz-form-control [nzXs]="formControlXs" [nzSm]="formControlSm" >
+            <nz-tree-select
+                id="parentMenuCode"
+                [nzNodes]="menuHiererachy"
+                [nzAllowClear]="true"
+                [nzPlaceHolder]="'상위 메뉴 없음'"
+                formControlName="parentMenuCode">
+            </nz-tree-select>
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+  </div>
+
+  <!-- 2 Row -->
+  <div nz-row nzGutter="8">
+    <div nz-col nzSpan="12">
+      <!--메뉴코드 필드-->
+      <nz-form-item>
+        <nz-form-label
+            nzFor="menuCode" nzRequired
+            [nzXs]="formLabelXs" [nzSm]="formLabelSm">메뉴코드
+        </nz-form-label>
+        <nz-form-control nzHasFeedback [nzXs]="formControlXs" [nzSm]="formControlSm" [nzErrorTip]="errorTpl">
+          <input
+              nz-input
+              id="menuCode"
+              formControlName="menuCode"
+              placeholder="메뉴코드를 입력해주세요.">
+            <ng-template #errorTpl let-control>
+                <ng-container *ngIf="control.hasError('required')">
+                    필수 입력 값입니다.
+                </ng-container>
+                <ng-container *ngIf="control.hasError('exists')">
+                    기존 코드가 존재합니다.
+                </ng-container>
+            </ng-template>
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+    <div nz-col nzSpan="12">
+      <!--메뉴명 필드-->
+      <nz-form-item>
+        <nz-form-label
+          nzFor="menuName"
+          nzRequired
+          [nzXs]="formLabelXs" [nzSm]="formLabelSm">메뉴명
+        </nz-form-label>
+        <nz-form-control [nzXs]="formControlXs" [nzSm]="formControlSm" [nzErrorTip]="errorTpl">
+          <input
+              nz-input
+              id="menuName"
+              formControlName="menuName"
+              placeholder="메뉴명을 입력해주세요.">
+          <ng-template #errorTpl let-control>
+            <ng-container *ngIf="control.hasError('required')">
+                필수 입력 값입니다.
+            </ng-container>
+          </ng-template>
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+  </div>
+
+  <!-- 3 Row -->
+  <div nz-row nzGutter="8">
+    <div nz-col nzSpan="12">
+      <!--메뉴타입 필드-->
+      <nz-form-item>
+        <nz-form-label
+            nzFor="menuType"
+            nzRequired
+            [nzXs]="formLabelXs" [nzSm]="formLabelSm">
+            메뉴타입
+        </nz-form-label>
+
+        <nz-form-control [nzXs]="formControlXs" [nzSm]="formControlSm" [nzErrorTip]="errorTpl">
+          <nz-select
+              id="menuType"
+              formControlName="menuType"
+              [nzSize]="'default'"
+              nzShowSearch
+              nzAllowClear
+              nzPlaceHolder="메뉴타입을 선택해주세요.">
+                  <nz-option
+                      *ngFor="let option of menuTypeList"
+                      [nzLabel]="option.name"
+                      [nzValue]="option.code">
+                  </nz-option>
+          </nz-select>
+          <ng-template #errorTpl let-control>
+            <ng-container *ngIf="control.hasError('required')">
+                필수 입력 값입니다.
+            </ng-container>
+          </ng-template>
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+
+    <div nz-col nzSpan="12">
+      <!--프로그램 필드-->
+      <nz-form-item>
+        <nz-form-label
+            nzFor="resource"
+            nzRequired
+            [nzXs]="formLabelXs" [nzSm]="formLabelSm">
+            프로그램
+        </nz-form-label>
+        <nz-form-control [nzXs]="formControlXs" [nzSm]="formControlSm" [nzErrorTip]="errorTpl">
+          <nz-select
+              id="resource"
+              formControlName="resource"
+              [nzSize]="'default'"
+              nzShowSearch
+              nzAllowClear
+              nzPlaceHolder="프로그램을 선택해주세요.">
+                  <nz-option
+                      *ngFor="let option of programList"
+                      [nzLabel]="option.resourceName"
+                      [nzValue]="option.resourceCode">
+                  </nz-option>
+          </nz-select>
+          <ng-template #errorTpl let-control>
+            <ng-container *ngIf="control.hasError('required')">
+                필수 입력 값입니다.
+            </ng-container>
+          </ng-template>
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+  </div>
+
+  <!-- 4 Row -->
+  <div nz-row nzGutter="8">
+    <div nz-col nzSpan="12">
+      <!--순번 필드-->
+      <nz-form-item>
+        <nz-form-label
+            nzFor="sequence"
+            [nzXs]="formLabelXs" [nzSm]="formLabelSm">
+            순번
+        </nz-form-label>
+        <nz-form-control [nzXs]="formControlXs" [nzSm]="formControlSm">
+            <nz-input-number
+                id="sequence"
+                formControlName="sequence"
+                placeholder="순번을 입력해주세요."
+                [nzMin]="1" [nzMax]="9999" [nzStep]="1">
+            </nz-input-number>
+        </nz-form-control>
+    </nz-form-item>
+    </div>
+  </div>
+
+</form>
+
+<div class="footer">
+  <button nz-button (click)="closeForm()">
+      <i nz-icon nzType="form" theme="outline"></i>
+      닫기
+  </button>
+  <nz-divider nzType="vertical"></nz-divider>
+  <button nz-button nzType="primary"
+      nz-popconfirm nzPopconfirmTitle="저장하시겠습니까?"
+      (nzOnConfirm)="submitMenu()" (nzOnCancel)="false">
+      <i nz-icon nzType="save" theme="outline"></i>
+      저장
+  </button>
+  <nz-divider nzType="vertical"></nz-divider>
+  <button nz-button nzType="danger"
+      nz-popconfirm nzPopconfirmTitle="삭제하시겠습니까?"
+      (nzOnConfirm)="deleteMenu()" (nzOnCancel)="false">
+      <i nz-icon nzType="delete" theme="outline"></i>
+      삭제
+  </button>
+</div>

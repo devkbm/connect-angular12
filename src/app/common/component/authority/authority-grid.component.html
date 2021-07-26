@@ -1,0 +1,13 @@
+<ag-grid-angular
+    [ngStyle]="style"
+    class="ag-theme-alpine-dark"
+    [rowSelection]="'single'"
+    [rowData]="authorityList"
+    [columnDefs]="columnDefs"
+    [getRowNodeId]="getRowNodeId"
+    [frameworkComponents]="frameworkComponents"
+    (gridSize)="test($event)"
+    (gridReady)="onGridReady($event)"
+    (selectionChanged)="selectionChanged($event)"
+    (rowDoubleClicked)="rowDbClicked($event)">
+</ag-grid-angular>

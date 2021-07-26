@@ -1,0 +1,136 @@
+{{fg.getRawValue() | json}}
+
+<form nz-form [formGroup]="fg" nzLayout="vertical">
+
+  <!-- 1 row -->
+  <div nz-row nzGutter="8">
+    <div nz-col nzSpan="12">
+      <!--상위 게시판 필드-->
+      <nz-form-item>
+        <nz-form-label nzFor="ppkBoard" [nzXs]="defaultLabelSize.xs" [nzSm]="defaultLabelSize.sm">
+          상위 게시판
+        </nz-form-label>
+        <nz-form-control [nzXs]="defaultControlSize.xs" [nzSm]="defaultControlSize.sm">
+          <nz-tree-select id="ppkBoard" formControlName="ppkBoard"
+              [nzNodes]="parentBoardItems"
+              [nzAllowClear]="true"
+              [nzPlaceHolder]="'상위 게시판 없음'">
+          </nz-tree-select>
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+
+    <div nz-col nzSpan="12">
+      <!--게시판타입 필드-->
+      <nz-form-item>
+        <nz-form-label nzFor="boardType" nzRequired [nzXs]="defaultLabelSize.xs" [nzSm]="defaultLabelSize.sm">
+          게시판 타입
+        </nz-form-label>
+        <nz-form-control [nzXs]="defaultControlSize.xs" [nzSm]="defaultControlSize.sm" [nzErrorTip]="errorTpl">
+          <nz-select id="boardType" formControlName="boardType"
+              [nzSize]="'default'" nzShowSearch nzAllowClear
+              nzPlaceHolder="메뉴타입을 선택해주세요.">
+            <nz-option *ngFor="let option of boardTypeList"
+                [nzLabel]="option.name" [nzValue]="option.code">
+            </nz-option>
+          </nz-select>
+          <ng-template #errorTpl let-control>
+            <ng-container *ngIf="control.hasError('required')">
+                필수 입력 값입니다.
+            </ng-container>
+          </ng-template>
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+  </div>
+
+  <!-- 2 row -->
+  <div nz-row nzGutter="8">
+    <div nz-col nzSpan="24">
+      <!--게시판명 필드-->
+      <nz-form-item>
+        <nz-form-label nzFor="boardName" nzRequired [nzXs]="defaultLabelSize.xs" [nzSm]="defaultLabelSize.sm">
+          게시판 명
+        </nz-form-label>
+        <nz-form-control [nzXs]="defaultControlSize.xs" [nzSm]="defaultControlSize.sm" [nzErrorTip]="errorTpl">
+          <input nz-input id="boardName" formControlName="boardName" placeholder="게시판명을 입력해주세요.">
+          <ng-template #errorTpl let-control>
+            <ng-container *ngIf="control.hasError('required')">
+              필수 입력 값입니다.
+            </ng-container>
+          </ng-template>
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+  </div>
+
+  <!-- 3 row -->
+  <div nz-row nzGutter="8">
+    <div nz-col nzSpan="12">
+      <!--시작일자 필드-->
+      <nz-form-item>
+        <nz-form-label nzFor="fromDate" nzRequired [nzXs]="defaultLabelSize.xs" [nzSm]="defaultLabelSize.sm">
+          시작일자
+        </nz-form-label>
+        <nz-form-control [nzXs]="defaultControlSize.xs" [nzSm]="defaultControlSize.sm" [nzErrorTip]="errorTpl">
+          <nz-date-picker formControlName="fromDate"></nz-date-picker>
+          <ng-template #errorTpl let-control>
+            <ng-container *ngIf="control.hasError('required')">
+              필수 입력 값입니다.
+            </ng-container>
+          </ng-template>
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+
+    <div nz-col nzSpan="12">
+      <!--종료일자 필드-->
+      <nz-form-item>
+        <nz-form-label nzFor="toDate" nzRequired [nzXs]="defaultLabelSize.xs" [nzSm]="defaultLabelSize.sm">
+          종료일자
+        </nz-form-label>
+        <nz-form-control [nzXs]="defaultControlSize.xs" [nzSm]="defaultControlSize.sm" [nzErrorTip]="errorTpl">
+          <nz-date-picker formControlName="toDate"></nz-date-picker>
+          <ng-template #errorTpl let-control>
+            <ng-container *ngIf="control.hasError('required')">
+              필수 입력 값입니다.
+            </ng-container>
+          </ng-template>
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+  </div>
+
+  <!--게시판설명 필드-->
+  <nz-form-item>
+    <nz-form-label nzFor="boardDescription" [nzXs]="defaultLabelSize.xs" [nzSm]="defaultLabelSize.sm">
+      게시판 설명
+    </nz-form-label>
+    <nz-form-control [nzXs]="defaultControlSize.xs" [nzSm]="defaultControlSize.sm">
+        <textarea nz-input id="boardDescription" formControlName="boardDescription" placeholder="게시판 설명을 입력해주세요." [nzAutosize]="{ minRows: 10, maxRows: 20 }"></textarea>
+    </nz-form-control>
+  </nz-form-item>
+</form>
+
+<div class="footer">
+  <button nz-button (click)="closeForm()">
+      <i nz-icon nzType="close" theme="outline"></i>
+      닫기
+  </button>
+  <nz-divider nzType="vertical"></nz-divider>
+  <button nz-button (click)="getBoard(this.fg.get('pkBoard')?.value)">
+      <i nz-icon nzType="search"></i>
+      조회
+  </button>
+  <button nz-button nzType="primary" (click)="saveBoard()">
+      <i nz-icon nzType="save" theme="outline"></i>
+      저장
+  </button>
+  <button nz-button nzType="danger"
+      nz-popconfirm nzPopconfirmTitle="삭제하시겠습니까?"
+      (nzOnConfirm)="deleteBoard()"
+      (nzOnCancel)="false">
+      <i nz-icon nzType="delete" theme="outline"></i>
+      삭제
+  </button>
+</div>

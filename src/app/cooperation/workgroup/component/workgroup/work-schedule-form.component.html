@@ -1,0 +1,94 @@
+{{form.getRawValue() | json}}
+<div class="footer">
+  <!--
+  <button nz-button (click)="getWorkGroupSchedule(form.get('id').value)">
+      조회
+  </button>
+  -->
+  <button nz-button (click)="closeForm()">
+      <i nz-icon nzType="close" theme="outline"></i>
+      닫기
+  </button>
+  <nz-divider nzType="vertical"></nz-divider>
+  <button nz-button nzType="primary" (click)="saveWorkGroupSchedule()">
+      <i nz-icon nzType="save" theme="outline"></i>
+      저장
+  </button>
+  <nz-divider nzType="vertical"></nz-divider>
+  <button nz-button nzType="danger" nz-popconfirm nzTitle="삭제하시겠습니까?"
+      (nzOnConfirm)="deleteWorkGroupSchedule(form.get('id')?.value)" (nzOnCancel)="false">
+      <i nz-icon nzType="delete" theme="outline"></i>
+      삭제
+  </button>
+</div>
+
+<form nz-form [formGroup]="form" nzLayout="vertical">
+  <div nz-row nzGutter="8">
+    <div nz-col nzSpan="12">
+      <!--작업그룹ID 필드-->
+      <nz-form-item>
+        <nz-form-label nzFor="workGroupId" nzRequired [nzXs]="defaultLabelSize.xs" [nzSm]="defaultLabelSize.sm">작업그룹 ID</nz-form-label>
+        <nz-form-control [nzXs]="defaultControlSize.xs" [nzSm]="defaultControlSize.sm">
+          <nz-select
+              id="workGroupId"
+              formControlName="workGroupId"
+              nzShowSearch="true"
+              [nzSize]="'default'"
+              nzPlaceHolder="Please select">
+              <nz-option
+                *ngFor="let item of workGroupList"
+                [nzLabel]="item.name"
+                [nzValue]="item.id">
+              </nz-option>
+          </nz-select>
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+
+    <div nz-col nzSpan="12">
+      <!--스케쥴ID 필드-->
+      <nz-form-item>
+        <nz-form-label nzFor="id" [nzXs]="defaultLabelSize.xs" [nzSm]="defaultLabelSize.sm">스케쥴 Id</nz-form-label>
+        <nz-form-control [nzXs]="defaultControlSize.xs" [nzSm]="defaultControlSize.sm">
+          <input nz-input id="id" formControlName="id">
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+  </div>
+
+  <div nz-row nzGutter="8">
+    <div nz-col nzSpan="22">
+      <!--시작일 필드-->
+      <nz-form-item class="form-item">
+        <nz-form-label nzFor="start" [nzXs]="defaultLabelSize.xs" [nzSm]="defaultLabelSize.sm">기간</nz-form-label>
+        <nz-form-control [nzXs]="defaultControlSize.xs" [nzSm]="defaultControlSize.sm">
+          <nz-date-picker formControlName="start" nzFormat="yyyy-MM-dd" style="width: 130px"></nz-date-picker>
+          <nz-time-picker formControlName="start" style="width: 105px"></nz-time-picker> ~
+          <nz-date-picker formControlName="end" nzFormat="yyyy-MM-dd" style="width: 130px"></nz-date-picker>
+          <nz-time-picker formControlName="end" style="width: 105px"></nz-time-picker>
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+    <div nz-col nzSpan="2">
+      <!--하루종일 필드-->
+      <nz-form-item>
+        <nz-form-label nzFor="allDay" [nzXs]="defaultLabelSize.xs" [nzSm]="defaultLabelSize.sm">
+          하루종일
+        </nz-form-label>
+
+        <nz-form-control [nzXs]="defaultControlSize.xs" [nzSm]="defaultControlSize.sm">
+          <label id="allDay" nz-checkbox formControlName="allDay"></label>
+        </nz-form-control>
+      </nz-form-item>
+  </div>
+  </div>
+
+  <!--제목 필드-->
+  <nz-form-item>
+    <nz-form-label nzFor="title" nzRequired [nzXs]="defaultLabelSize.xs" [nzSm]="defaultLabelSize.sm">제목</nz-form-label>
+    <nz-form-control [nzXs]="defaultControlSize.xs" [nzSm]="defaultControlSize.sm">
+      <textarea nz-input id="title" formControlName="title" placeholder="제목을 입력해주세요." [nzAutosize]="{ minRows: 10, maxRows: 20 }"></textarea>
+    </nz-form-control>
+  </nz-form-item>
+
+</form>

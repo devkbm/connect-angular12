@@ -1,0 +1,86 @@
+<!--
+{{form.getRawValue() | json}}
+{{color}} - 11 -
+{{this.formType}}
+-->
+<div class="footer">
+
+    <!--
+    <button nz-button (click)="getWorkGroup(form.get('workGroupId').value)">
+        조회
+    </button>
+    -->
+
+    <button nz-button (click)="closeForm()">
+        <i nz-icon nzType="close" theme="outline"></i>
+        닫기
+    </button>
+    <nz-divider nzType="vertical"></nz-divider>
+    <button nz-button nzType="primary" nz-popconfirm nzTitle="저장하시겠습니까?"
+        (nzOnConfirm)="saveWorkGroup()" (nzOnCancel)="false">
+        <i nz-icon nzTtype="save" theme="outline"></i>
+        저장
+    </button>
+    <nz-divider nzType="vertical"></nz-divider>
+    <button nz-button nzType="danger" nz-popconfirm nzTitle="삭제하시겠습니까?"
+        (nzOnConfirm)="deleteWorkGroup(fg.get('id')?.value)" (nzOnCancel)="false">
+        <i nz-icon nzTtype="delete" theme="outline"></i>
+        삭제
+    </button>
+</div>
+
+<form nz-form [formGroup]="fg" nzLayout="vertical">
+    <div nz-row nzGutter="8">
+        <div nz-col nzSpan="12">
+            <nz-form-item>
+                <nz-form-label nzFor="workGroupId" nzRequired [nzXs]="formLabelXs" [nzSm]="formLabelSm">작업그룹 Id</nz-form-label>
+                <nz-form-control [nzXs]="formControlXs" [nzSm]="formControlSm">
+                    <input nz-input id="workGroupId" formControlName="workGroupId">
+                </nz-form-control>
+            </nz-form-item>
+        </div>
+        <div nz-col nzSpan="12">
+            <nz-form-item>
+                <nz-form-label nzFor="workGroupName" nzRequired [nzXs]="formLabelXs" [nzSm]="formLabelSm">작업그룹명</nz-form-label>
+                <nz-form-control [nzXs]="formControlXs" [nzSm]="formControlSm">
+                    <input nz-input id="workGroupName" formControlName="workGroupName" placeholder="작업그룹명을 입력해주세요.">
+                    <!--
+                    <nz-form-explain *ngIf="isFieldErrors(fg,'workGroupName','required')">The input is Required!</nz-form-explain>
+                    -->
+                </nz-form-control>
+            </nz-form-item>
+        </div>
+    </div>
+
+    <div nz-row nzGutter="8">
+        <div nz-col nzSpan="12">
+            <nz-form-item>
+                <nz-form-label nzFor="color" nzRequired [nzXs]="formLabelXs" [nzSm]="formLabelSm">색상</nz-form-label>
+                <nz-form-control [nzXs]="formControlXs" [nzSm]="formControlSm">
+                    <!--<input nz-input id="color" formControlName="color" placeholder="색상 입력해주세요.">             -->
+                    <input formControlName="color"
+                           [style.background]="color"
+                           [cpAlphaChannel]="'always'"
+                           [cpOutputFormat]="'hex'"
+                           [cpOKButton]=true
+                           [(colorPicker)]="color"
+                           (colorPickerChange)="selectColor($event)"/>
+                    <!--
+                    <nz-form-explain *ngIf="isFieldErrors(fg,'color','required')">The input is Required!</nz-form-explain>
+                    -->
+                </nz-form-control>
+            </nz-form-item>
+        </div>
+        <div nz-col nzSpan="12">
+            <nz-form-item>
+                <nz-form-label nzFor="memberList" [nzXs]="formLabelXs" [nzSm]="formLabelSm">팀원</nz-form-label>
+                <nz-form-control [nzXs]="formControlXs" [nzSm]="formControlSm">
+                    <nz-select formControlName="memberList" [nzSize]="'default'" nzMode="multiple" nzPlaceHolder="Please select">
+                        <nz-option *ngFor="let option of memberList" [nzLabel]="option.name" [nzValue]="option.userId"></nz-option>
+                    </nz-select>
+                </nz-form-control>
+            </nz-form-item>
+        </div>
+    </div>
+
+</form>
