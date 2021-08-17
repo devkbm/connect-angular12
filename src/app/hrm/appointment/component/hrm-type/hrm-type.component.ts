@@ -44,7 +44,7 @@ export class HrmTypeComponent extends AppBase implements OnInit {
 
   selectHrmType(row: any): void {
     this.selectedHrmTypeRow = row;
-    this.gridHrmTypeCode.getGridList(row.id);
+    this.gridHrmTypeCode.getGridList(row.code);
   }
 
   public newHrmTypeForm(): void {
@@ -53,7 +53,8 @@ export class HrmTypeComponent extends AppBase implements OnInit {
   }
 
   editHrmType(row: any): void {
-    this.formHrmType.getHrmType(row.id);
+    console.log(row);
+    this.formHrmType.getHrmType(row.code);
     this.drawerVisibleHrmType = true;
   }
 
@@ -68,16 +69,16 @@ export class HrmTypeComponent extends AppBase implements OnInit {
   public refreshGridHrmTypeCode(): void {
     this.closeDrawerHrmTypeCode();
     console.log(this.selectedHrmTypeRow?.hrmType);
-    this.gridHrmTypeCode.getGridList(this.selectedHrmTypeRow.id);
+    this.gridHrmTypeCode.getGridList(this.selectedHrmTypeRow.code);
   }
 
   public newHrmTypeCodeForm(): void {
     this.drawerVisibleHrmTypeCode = true;
-    this.formHrmTypeCode.newForm(this.selectedHrmTypeRow.id);
+    this.formHrmTypeCode.newForm(this.selectedHrmTypeRow.code, '');
   }
 
   public editHrmTypeCodeForm(row: any): void {
-    this.formHrmTypeCode.getHrmTypeDetailCode(row.id);
+    this.formHrmTypeCode.getHrmTypeDetailCode(row.code);
     this.drawerVisibleHrmTypeCode = true;
   }
 

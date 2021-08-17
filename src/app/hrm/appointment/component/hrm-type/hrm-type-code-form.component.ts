@@ -29,8 +29,7 @@ export class HrmTypeCodeFormComponent extends FormBase implements OnInit {
 
   ngOnInit() {
     this.fg = this.fb.group({
-      id        : [ null, [ Validators.required ] ], //new FormControl(fkBoard, {validators: Validators.required}),
-      typeId    : [ null, [ Validators.required ] ],
+      codeType  : [ null, [ Validators.required ] ],
       code      : new FormControl(null, {
                                     validators: Validators.required,
                                     asyncValidators: [existingHrmTypeDetailCodeValidator(this.hrmCodeService)],
@@ -42,23 +41,24 @@ export class HrmTypeCodeFormComponent extends FormBase implements OnInit {
       comment   : [ null]
     });
 
-    this.newForm('');
+    this.newForm('', '');
   }
 
-  public newForm(typeId: string): void {
+  public newForm(codeType: string, code: string): void {
     this.formType = FormType.NEW;
 
     /**
      * 컨트롤 초기값 설정
      */
     this.fg.reset();
-    this.fg.controls.typeId.setValue(typeId);
+    this.fg.controls.codeType.setValue(codeType);
+    this.fg.get('code')?.setValue(code);
     this.fg.controls.useYn.setValue(true);
 
     /**
      * 컨트롤 설정
      */
-    this.fg.controls.typeId.disable();
+    this.fg.controls.codeType.disable();
     this.fg.controls.code.enable();
   }
 
@@ -82,7 +82,7 @@ export class HrmTypeCodeFormComponent extends FormBase implements OnInit {
             if ( model.total > 0 ) {
               this.modifyForm(model.data);
             } else {
-              this.newForm('');
+              this.newForm('', '');
             }
             this.appAlarmService.changeMessage(model.message);
           },

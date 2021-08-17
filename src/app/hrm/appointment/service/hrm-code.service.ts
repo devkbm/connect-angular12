@@ -83,7 +83,7 @@ export class HrmCodeService extends DataService {
   }
 
   getHrmTypeDetailCodeList(params: any): Observable<ResponseList<HrmTypeDetailCode>> {
-    const url = `${this.API_URL}/typedetailcode`;
+    const url = `${this.API_URL}/hrmtype/type/code`;
     const options = {
       headers: this.getAuthorizedHttpHeaders(),
       withCredentials: true,
@@ -96,7 +96,7 @@ export class HrmCodeService extends DataService {
   }
 
   getValidHrmTypeDetailCode(id: string): Observable<ResponseObject<boolean>> {
-    const url = `${this.API_URL}/typedetailcode/${id}/valid`;
+    const url = `${this.API_URL}/hrmtype/type/code/${id}/valid`;
     const options = {
       headers: this.getAuthorizedHttpHeaders(),
       withCredentials: true
@@ -108,7 +108,7 @@ export class HrmCodeService extends DataService {
   }
 
   getHrmTypeDetailCode(id: string): Observable<ResponseObject<HrmTypeDetailCode>> {
-    const url = `${this.API_URL}/typedetailcode/${id}`;
+    const url = `${this.API_URL}/hrmtype/type/code/${id}`;
     const options = {
       headers: this.getAuthorizedHttpHeaders(),
       withCredentials: true
@@ -121,7 +121,7 @@ export class HrmCodeService extends DataService {
 
 
   saveHrmTypeDetailCode(dept: HrmType): Observable<ResponseObject<HrmTypeDetailCode>> {
-    const url = `${this.API_URL}/typedetailcode`;
+    const url = `${this.API_URL}/hrmtype/type/code`;
     const options = {
       headers: this.getAuthorizedHttpHeaders(),
       withCredentials: true
@@ -132,7 +132,7 @@ export class HrmCodeService extends DataService {
   }
 
   deleteHrmTypeDetailCode(id: string): Observable<ResponseObject<HrmTypeDetailCode>> {
-    const url = `${this.API_URL}/typedetailcode/${id}`;
+    const url = `${this.API_URL}/hrmtype/type/code/${id}`;
     const options = {
       headers: this.getAuthorizedHttpHeaders(),
       withCredentials: true

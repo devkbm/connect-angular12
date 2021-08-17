@@ -1,7 +1,6 @@
 export class HrmTypeDetailCode {
   constructor(
-    public id: string,
-    public typeId: string,
+    public codeType: string,
     public code: string,
     public codeName: string,
     public useYn: boolean,

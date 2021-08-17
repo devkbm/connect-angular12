@@ -31,17 +31,16 @@ export class HrmTypeFormComponent extends FormBase implements OnInit {
     this.getTypeList();
 
     this.fg = this.fb.group({
-      id        : [ null, [ Validators.required ] ], //new FormControl(fkBoard, {validators: Validators.required}),
-      hrmType   : [ null, [ Validators.required ] ],
       code      : new FormControl(null, {
                     validators: Validators.required,
                     asyncValidators: [existingHrmTypeValidator(this.hrmCodeService)],
                     updateOn: 'blur'
                   }),
       codeName  : [ null, [ Validators.required ] ],
-      useYn     : [ null],
-      sequence  : [ null],
-      comment   : [ null]
+      useYn     : [ null ],
+      sequence  : [ null ],
+      hrmType   : [ null ],
+      comment   : [ null ]
     });
 
     this.newForm();
@@ -63,7 +62,7 @@ export class HrmTypeFormComponent extends FormBase implements OnInit {
   }
 
   public select(param: any) {
-    this.getHrmType(param.value['id']);
+    this.getHrmType(param.value['code']);
   }
 
   public getTypeList(): void {
@@ -82,9 +81,9 @@ export class HrmTypeFormComponent extends FormBase implements OnInit {
       );
   }
 
-  public getHrmType(id: string): void {
+  public getHrmType(code: string): void {
     this.hrmCodeService
-        .getHrmType(id)
+        .getHrmType(code)
         .subscribe(
           (model: ResponseObject<HrmType>) => {
             if ( model.total > 0 ) {
@@ -118,8 +117,10 @@ export class HrmTypeFormComponent extends FormBase implements OnInit {
   }
 
   public deleteHrmType(): void {
+    const id = this.fg.get('code')?.value;
+
     this.hrmCodeService
-        .deleteHrmType(this.fg.get('id')?.value)
+        .deleteHrmType(id)
         .subscribe(
             (model: ResponseObject<HrmType>) => {
             this.appAlarmService.changeMessage(model.message);

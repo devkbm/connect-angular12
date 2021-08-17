@@ -1,4 +1,4 @@
-<nz-page-header (nzBack)="goBack()" nzBackIcon nzTitle="인사 유형 정보 등록" nzSubtitle="This is a subtitle"> </nz-page-header>
+<nz-page-header (nzBack)="goBack()" nzBackIcon nzTitle="인사시스템 코드 정보" nzSubtitle="인사시스템 구분 코드 정보 관리"> </nz-page-header>
 
 <div nz-row class="btn-group">
 
@@ -9,14 +9,14 @@
           <ng-template #addOnBeforeTemplate>
               <nz-select [(ngModel)]="ledgerQueryKey">
                 <nz-option [nzLabel]="'발령번호'" [nzValue]="'ledgerId'"></nz-option>
-                <nz-option [nzLabel]="'메뉴그룹명'" [nzValue]="'menuGroupName'"></nz-option>          
+                <nz-option [nzLabel]="'메뉴그룹명'" [nzValue]="'menuGroupName'"></nz-option>
               </nz-select>
             </ng-template>
           <ng-template #suffixIconSearch>
             <i nz-icon nzType="search"></i>
           </ng-template>
         </div>
-      
+
         <div nz-col [nzSpan]="8">
           <nz-input-group nzSearch [nzAddOnBefore]="addOnBeforeTemplate2" [nzSuffix]="suffixIconSearch2">
             <input type="text" [(ngModel)]="ledgerListQueryValue" nz-input placeholder="input search text" (keyup.enter)="refreshGridHrmTypeCode()">
@@ -24,27 +24,27 @@
           <ng-template #addOnBeforeTemplate2>
               <nz-select [(ngModel)]="ledgerListQueryKey">
                 <nz-option [nzLabel]="'직원번호'" [nzValue]="'empId'"></nz-option>
-                <nz-option [nzLabel]="'메뉴명'" [nzValue]="'menuName'"></nz-option>          
+                <nz-option [nzLabel]="'메뉴명'" [nzValue]="'menuName'"></nz-option>
               </nz-select>
             </ng-template>
           <ng-template #suffixIconSearch2>
             <i nz-icon nzType="search"></i>
           </ng-template>
         </div>
-      
+
         <div nz-col [nzSpan]="8" style="text-align: right;">
           <button nz-button (click)="newHrmTypeForm()">
             <i nz-icon nzType="search"></i>
-            인사유형등록
+            구분코드등록
           </button>
           <nz-divider nzType="vertical"></nz-divider>
-      
+
           <button nz-button (click)="newHrmTypeCodeForm()">
             <i nz-icon nzType="form"></i>
-            인사유형상세등록
+            상세코드등록
           </button>
           <nz-divider nzType="vertical"></nz-divider>
-      
+
           <button nz-button (click)="refreshGridHrmType()">
             <i nz-icon nzType="form"></i>
             조회
@@ -54,14 +54,14 @@
 </div>
 
 <div class="content">
-    <h3 class="pgm-title">인사 유형 정보 목록</h3>  
-    <app-hrm-type-grid #gridHrmType 
+    <h3 class="pgm-title">구분 코드 목록</h3>
+    <app-hrm-type-grid #gridHrmType
         (rowSelected)="selectHrmType($event)"
         (rowDoubleClicked)="editHrmType($event)"
-        (editButtonClicked)="editHrmType($event)">  
+        (editButtonClicked)="editHrmType($event)">
     </app-hrm-type-grid>
 
-    <h3 class="pgm-title">인사 유형 상세 목록</h3>
+    <h3 class="pgm-title">상세 코드 목록</h3>
     <app-hrm-type-code-grid #gridHrmTypeCode
       (rowDoubleClicked)="editHrmTypeCodeForm($event)"
       (editButtonClicked)="editHrmTypeCodeForm($event)">
@@ -74,13 +74,13 @@
     [nzMaskClosable]="true"
     [nzWidth]="800"
     [nzVisible]="drawerVisibleHrmType"
-    nzTitle="인사유형 등록"
+    nzTitle="구분코드 등록"
     (nzOnClose)="closeDrawerHrmType()">
     <app-hrm-type-form #formHrmType
       (formSaved)="refreshGridHrmType()"
       (formDeleted)="refreshGridHrmType()"
-      (formClosed)="closeDrawerHrmType()">  
-    </app-hrm-type-form> 
+      (formClosed)="closeDrawerHrmType()">
+    </app-hrm-type-form>
 </nz-drawer>
 
 
@@ -91,7 +91,7 @@
     [nzMaskClosable]="true"
     [nzWidth]="800"
     [nzVisible]="drawerVisibleHrmTypeCode"
-    nzTitle="인사유형상세 등록"
+    nzTitle="상세코드 등록"
     (nzOnClose)="closeDrawerHrmTypeCode()">
 
     <app-hrm-type-code-form #formHrmTypeCode

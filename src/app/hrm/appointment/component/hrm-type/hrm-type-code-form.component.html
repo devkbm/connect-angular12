@@ -11,26 +11,26 @@
   </nz-form-item>
   -->
 
-  <!--인사유형 식별자 필드-->
+  <!-- 구분코드 필드-->
   <nz-form-item class="form-item">
-    <nz-form-label nzFor="code_typeId" nzRequired [nzXs]="defaultLabelSize.xs" [nzSm]="defaultLabelSize.sm">
-      인사유형 식별자
+    <nz-form-label nzFor="code_codeType" nzRequired [nzXs]="defaultLabelSize.xs" [nzSm]="defaultLabelSize.sm">
+      구분코드
     </nz-form-label>
     <nz-form-control [nzXs]="defaultControlSize.xs" [nzSm]="defaultControlSize.sm">
-      <input nz-input id="code_typeId" formControlName="typeId">
+      <input nz-input id="code_codeType" formControlName="codeType">
     </nz-form-control>
   </nz-form-item>
 
   <!-- 2 row -->
   <div nz-row nzGutter="8">
     <div nz-col nzSpan="12">
-      <!--인사유형상세코드 필드-->
+      <!--코드 필드-->
       <nz-form-item class="form-item" >
         <nz-form-label nzFor="code_code" nzRequired [nzXs]="defaultLabelSize.xs" [nzSm]="defaultLabelSize.sm">
-          인사유형상세코드
+          코드
         </nz-form-label>
         <nz-form-control [nzXs]="defaultControlSize.xs" [nzSm]="defaultControlSize.sm" [nzErrorTip]="errorTpl">
-          <input nz-input id="code_code" formControlName="code" placeholder="인사유형상세코드를 입력해주세요.">
+          <input nz-input id="code_code" formControlName="code" placeholder="코드를 입력해주세요.">
           <ng-template #errorTpl let-control>
             <ng-container *ngIf="control.hasError('required')">
               필수 입력 값입니다.
@@ -44,10 +44,10 @@
     </div>
 
     <div nz-col nzSpan="12">
-      <!--인사유형상세코드명 필드-->
+      <!--코드명 필드-->
       <nz-form-item class="form-item">
         <nz-form-label nzFor="code_codeName" nzRequired [nzXs]="defaultLabelSize.xs" [nzSm]="defaultLabelSize.sm">
-          인사유형상세코드명
+          코드명
         </nz-form-label>
         <nz-form-control [nzXs]="defaultControlSize.xs" [nzSm]="defaultControlSize.sm" [nzErrorTip]="errorTpl">
           <input nz-input id="code_codeName" formControlName="codeName" placeholder="인사유형상세코드명을 입력해주세요.">
