@@ -6,11 +6,11 @@ import {
   Validators
 } from '@angular/forms';
 
-import { BoardService } from '.././service/board.service';
+import { BoardService } from './board.service';
 
 import { ResponseObject } from '../../../common/model/response-object';
-import { Board } from '.././model/board';
-import { BoardHierarchy } from '../model/board-hierarchy';
+import { Board } from './board.model';
+import { BoardHierarchy } from './board-hierarchy.model';
 import { ResponseList } from '../../../common/model/response-list';
 import { FormBase, FormType } from 'src/app/common/form/form-base';
 

@@ -9,10 +9,10 @@ import { NzFormatEmitEvent, NzTreeNodeOptions } from 'ng-zorro-antd/tree';
 
 import { NzModalService } from 'ng-zorro-antd/modal';
 import { AppAlarmService } from '../common/service/app-alarm.service';
-import { MenuService } from '../common/service/menu.service';
+import { MenuService } from '../common/component/menu/menu.service';
 
-import { MenuGroup } from '../common/model/menu-group';
-import { MenuHierarchy } from '../common/model/menu-hierarchy';
+import { MenuGroup } from '../common/component/menu/menu-group.model';
+import { MenuHierarchy } from '../common/component/menu/menu-hierarchy.model';
 import { ResponseList } from '../common/model/response-list';
 import { UserSessionService } from '../common/service/user-session.service';
 import { UserPopupComponent } from '../common/component/user/user-popup.component';

@@ -1,9 +1,10 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { AggridFunction } from 'src/app/common/grid/aggrid-function';
 import { AppAlarmService } from 'src/app/common/service/app-alarm.service';
-import { Article } from '../model/article';
-import { BoardService } from '../service/board.service';
+import { BoardService } from './board.service';
 import { ResponseList } from 'src/app/common/model/response-list';
+
+import { Article } from './article.model';
 
 @Component({
   selector: 'app-article-grid',

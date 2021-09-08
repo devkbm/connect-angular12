@@ -1,15 +1,15 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
-import { ProgramService } from '../../service/program.service';
+import { ProgramService } from './program.service';
 import { AppAlarmService } from '../../service/app-alarm.service';
 
 import { ResponseObject } from '../../model/response-object';
-import { WebResource } from '../../model/web-resource';
+import { WebResource } from './web-resource';
 import { FormBase, FormType } from '../../form/form-base';
-import { existingWebResourceValidator } from '../../validator/web-resource-duplication-validator.directive';
-import { CommonCodeService } from '../../service/common-code.service';
-import { CommonCode } from '../../model/common-code';
+import { existingWebResourceValidator } from './web-resource-duplication-validator.directive';
+import { CommonCodeService } from '../commoncode/common-code.service';
+import { CommonCode } from '../commoncode/common-code.model';
 import { ResponseList } from '../../model/response-list';
 
 @Component({

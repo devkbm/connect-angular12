@@ -1,9 +1,9 @@
-import { Holiday } from './../../model/holiday';
+import { Holiday } from './holiday.model';
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { AggridFunction } from 'src/app/common/grid/aggrid-function';
 import { AppAlarmService } from 'src/app/common/service/app-alarm.service';
 import { ResponseList } from 'src/app/common/model/response-list';
-import { HolidayService } from '../../service/holiday.service';
+import { HolidayService } from './holiday.service';
 
 @Component({
   selector: 'app-holiday-grid',

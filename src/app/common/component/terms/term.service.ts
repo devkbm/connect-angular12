@@ -4,11 +4,11 @@ import { HttpClient, HttpHeaders, HttpParams, HttpXsrfTokenExtractor } from '@an
 import { Observable } from 'rxjs';
 import { map, tap, catchError } from 'rxjs/operators';
 
-import { DataService } from './data.service';
-import { ResponseObject } from '../model/response-object';
-import { ResponseList } from '../model/response-list';
+import { DataService } from '../../service/data.service';
+import { ResponseObject } from '../../model/response-object';
+import { ResponseList } from '../../model/response-list';
 
-import { Term } from '../model/term';
+import { Term } from './term';
 
 @Injectable()
 export class TermService extends DataService {

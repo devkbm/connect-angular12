@@ -3,10 +3,10 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 
 import { AggridFunction } from '../../grid/aggrid-function';
 
-import { MenuService } from '../../service/menu.service';
+import { MenuService } from './menu.service';
 import { AppAlarmService } from '../../service/app-alarm.service';
 import { ResponseList } from '../../model/response-list';
-import { Menu } from '../../model/menu';
+import { Menu } from './menu.model';
 
 @Component({
   selector: 'app-menu-grid',

@@ -1,5 +1,5 @@
-import { MenuGroup } from './menu-group';
-import { Authority } from './authority';
+import { MenuGroup } from '../component/menu/menu-group.model';
+import { Authority } from '../component/authority/authority.model';
 
 export class UserToken {
   constructor(

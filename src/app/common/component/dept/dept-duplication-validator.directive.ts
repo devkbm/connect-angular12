@@ -1,21 +1,18 @@
 import { Directive } from '@angular/core';
 import { NG_ASYNC_VALIDATORS, AbstractControl, ValidationErrors, AsyncValidator, AsyncValidatorFn } from '@angular/forms';
-import { UserService } from '../service/user.service';
-import { User } from '../model/user-info';
-import { ResponseObject } from '../model/response-object';
+import { DeptService } from './dept.service';
+
 
 import { Observable } from 'rxjs';
 import { map, tap, catchError } from 'rxjs/operators';
 
-export function existingUserValidator(userService: UserService): AsyncValidatorFn {
+export function existingDeptValidator(deptService: DeptService): AsyncValidatorFn {
   return (control: AbstractControl): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> => {
-    // console.log(control.root);
-    // console.log(control.parent.get('name').value);
-    return control.value ? userService
-              .checkUser(control.value)
+    return control.value ? deptService
+              .getValidateDeptDup(control.value)
               .pipe(
                 map( responseObj => {
-                  if ( responseObj.data == false ) {
+                  if ( responseObj.data == true ) {
                     return {exists: responseObj.message};
                   } else {
                     return null;
@@ -25,15 +22,16 @@ export function existingUserValidator(userService: UserService): AsyncValidatorF
   };
 }
 
+
 @Directive({
-  selector: '[validUserDuplication]',
+  selector: '[appDeptDuplicationValidator]',
   providers: [
-    { provide: NG_ASYNC_VALIDATORS, useExisting: UserDuplicationValidatorDirective, multi: true }
+    { provide: NG_ASYNC_VALIDATORS, useExisting: DeptDuplicationValidatorDirective, multi: true }
   ]
 })
-export class UserDuplicationValidatorDirective implements AsyncValidator {
+export class DeptDuplicationValidatorDirective implements AsyncValidator {
 
-  constructor(private userService: UserService) { }
+  constructor(private deptService: DeptService) { }
 
   validate(control: AbstractControl): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> {
     /*return this.userService
@@ -43,7 +41,7 @@ export class UserDuplicationValidatorDirective implements AsyncValidator {
                 return users.data ? {'exists': users.message} : null;
                 } )
               );*/
-    return existingUserValidator(this.userService)(control);
+    return existingDeptValidator(this.deptService)(control);
 
   }
 }

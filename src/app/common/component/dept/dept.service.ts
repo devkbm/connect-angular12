@@ -4,12 +4,12 @@ import { HttpClient, HttpHeaders, HttpParams, HttpXsrfTokenExtractor } from '@an
 import { Observable } from 'rxjs';
 import { map, tap, catchError } from 'rxjs/operators';
 
-import { DataService } from './data.service';
-import { ResponseObject } from '../model/response-object';
-import { ResponseList } from '../model/response-list';
+import { DataService } from '../../service/data.service';
+import { ResponseObject } from '../../model/response-object';
+import { ResponseList } from '../../model/response-list';
 
-import { Dept } from '../model/dept';
-import { DeptHierarchy } from '../model/dept-hierarchy';
+import { Dept } from './dept.model';
+import { DeptHierarchy } from './dept-hierarchy.model';
 import { GlobalProperty } from 'src/app/global-property';
 
 @Injectable()

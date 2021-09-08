@@ -4,16 +4,17 @@ import { HttpClient, HttpHeaders, HttpXsrfTokenExtractor } from '@angular/common
 import { Observable } from 'rxjs';
 import { map, tap, catchError } from 'rxjs/operators';
 
-import { DataService } from '../service/data.service';
+import { DataService } from '../../service/data.service';
 
-import { ResponseObject } from '../model/response-object';
-import { ResponseList } from '../model/response-list';
-import { UserNotFoundError } from '../error/user-not-found-error';
+import { ResponseObject } from '../../model/response-object';
+import { ResponseList } from '../../model/response-list';
+import { UserNotFoundError } from '../../error/user-not-found-error';
 
-import { User } from '../model/user-info';
-import { Authority } from '../model/authority';
-import { MenuGroup } from '../model/menu-group';
+import { User } from '../../model/user-info';
+
+import { MenuGroup } from '../menu/menu-group.model';
 import { GlobalProperty } from 'src/app/global-property';
+import { Authority } from '../authority/authority.model';
 
 @Injectable()
 export class UserService extends DataService {

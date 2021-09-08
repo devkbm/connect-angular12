@@ -7,12 +7,12 @@ import {
   Validators
 } from '@angular/forms';
 
-import { CommonCodeService } from '../../service/common-code.service';
+import { CommonCodeService } from './common-code.service';
 import { AppAlarmService } from '../../service/app-alarm.service';
 
 import { ResponseObject } from '../../model/response-object';
-import { CommonCode } from '../../model/common-code';
-import { CommonCodeHierarchy } from '../../model/common-code-hierarchy';
+import { CommonCode } from './common-code.model';
+import { CommonCodeHierarchy } from './common-code-hierarchy.model';
 import { ResponseList } from '../../model/response-list';
 import { FormBase, FormType } from '../../form/form-base';
 

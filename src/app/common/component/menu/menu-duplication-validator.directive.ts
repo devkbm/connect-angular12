@@ -4,12 +4,12 @@ import { NG_ASYNC_VALIDATORS, AbstractControl, ValidationErrors, AsyncValidator,
 import { Observable } from 'rxjs';
 import { map, tap, catchError } from 'rxjs/operators';
 
-import { ProgramService } from '../service/program.service';
+import { MenuService } from './menu.service';
 
-export function existingWebResourceValidator(programService: ProgramService): AsyncValidatorFn {
+export function existingMenuValidator(menuService: MenuService): AsyncValidatorFn {
   return (control: AbstractControl): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> => {
     return control.value ?
-             programService.getProgramDupCheck(control.value)
+              menuService.getValidDupMenu(control.value)
                           .pipe(
                             map( responseObj => {
                               if ( responseObj.data === false ) {

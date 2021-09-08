@@ -1,4 +1,4 @@
-import { WebResource } from './web-resource';
+import { WebResource } from '../program/web-resource';
 
 export class Menu {
   constructor(

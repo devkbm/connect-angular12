@@ -7,9 +7,9 @@ import { map, tap, catchError } from 'rxjs/operators';
 import { DataService } from '../../../common/service/data.service';
 import { ResponseObject } from '../../../common/model/response-object';
 import { ResponseList } from '../../../common/model/response-list';
-import { WorkGroup } from '../model/workgroup';
-import { WorkGroupMember } from '../model/workgroup-member';
-import { WorkGroupSchedule } from '../model/workgroup-schedule';
+import { WorkGroup } from '../model/workgroup.model';
+import { WorkGroupMember } from '../model/workgroup-member.model';
+import { WorkGroupSchedule } from '../model/workgroup-schedule.model';
 import { GlobalProperty } from 'src/app/global-property';
 
 

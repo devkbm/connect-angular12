@@ -10,7 +10,7 @@ import { NzModalService } from 'ng-zorro-antd/modal';
 
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
-import { BoardService } from './service/board.service';
+import { BoardService } from './component/board.service';
 
 import { BoardTreeComponent } from './component/board-tree.component';
 import { BoardFormComponent } from './component/board-form.component';

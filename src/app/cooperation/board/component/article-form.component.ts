@@ -1,15 +1,15 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ChangeEvent, CKEditorComponent } from '@ckeditor/ckeditor5-angular/ckeditor.component';
-import { BoardService } from '.././service/board.service';
+import { BoardService } from './board.service';
 
 import { ResponseObject } from '../../../common/model/response-object';
-import { Article } from '.././model/article';
 import { FormBase, FormType } from 'src/app/common/form/form-base';
 import { NzUploadChangeParam, NzUploadComponent, NzUploadFile } from 'ng-zorro-antd/upload';
 import { HttpHeaders } from '@angular/common/http';
 import { GlobalProperty } from 'src/app/global-property';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import { Article } from './article.model';
 
 @Component({
   selector: 'app-article-form',

@@ -4,12 +4,12 @@ import { HttpClient, HttpHeaders, HttpParams, HttpXsrfTokenExtractor } from '@an
 import { Observable } from 'rxjs';
 import { map, tap, catchError } from 'rxjs/operators';
 
-import { DataService } from './data.service';
-import { ResponseObject } from '../model/response-object';
-import { ResponseList } from '../model/response-list';
+import { DataService } from '../../service/data.service';
+import { ResponseObject } from '../../model/response-object';
+import { ResponseList } from '../../model/response-list';
 
-import { CommonCode } from '../model/common-code';
-import { CommonCodeHierarchy } from '../model/common-code-hierarchy';
+import { CommonCode } from './common-code.model';
+import { CommonCodeHierarchy } from './common-code-hierarchy.model';
 import { GlobalProperty } from 'src/app/global-property';
 
 

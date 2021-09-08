@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, SkipSelf, forwardRef, ViewEncapsulation } from '@angular/core';
 import { ControlContainer, FormGroupDirective, FormGroup, NG_VALUE_ACCESSOR, } from '@angular/forms';
-import { DeptService } from '../../service/dept.service';
-import { Dept } from '../../model/dept';
+import { DeptService } from './dept.service';
+import { Dept } from './dept.model';
 import { ResponseList } from '../../model/response-list';
 
 @Component({

@@ -1,10 +1,10 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
-import { TermService } from '../../service/term.service';
+import { TermService } from './term.service';
 import { AppAlarmService } from '../../service/app-alarm.service';
 
 import { ResponseList } from '../../model/response-list';
-import { Term } from '../../model/term';
+import { Term } from './term';
 import { AggridFunction } from '../../grid/aggrid-function';
 
 @Component({

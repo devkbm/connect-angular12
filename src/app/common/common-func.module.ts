@@ -35,8 +35,8 @@ import { AgGridModule } from 'ag-grid-angular';
 
 import { AppRoutingModule } from '../app-routing.module';
 
-import { LoginService } from './service/login.service';
-import { UserService } from './service/user.service';
+import { LoginService } from './component/login/login.service';
+import { UserService } from './component/user/user.service';
 
 import { LoginComponent } from './component/login/login.component';
 import { MenuFormComponent } from './component/menu/menu-form.component';
@@ -56,9 +56,9 @@ import { MenuComponent } from './component/menu/menu.component';
 import { TermComponent } from './component/terms/term.component';
 import { TermGridComponent } from './component/terms/term-grid.component';
 import { TermFormComponent } from './component/terms/term-form.component';
-import { TermService } from './service/term.service';
+import { TermService } from './component/terms/term.service';
 import { CommonCodeFormComponent } from './component/commoncode/common-code-form.component';
-import { CommonCodeService } from './service/common-code.service';
+import { CommonCodeService } from './component/commoncode/common-code.service';
 import { CommonCodeGridComponent } from './component/commoncode/common-code-grid.component';
 import { CommonCodeComponent } from './component/commoncode/common-code.component';
 import { CommonCodeTreeComponent } from './component/commoncode/common-code-tree.component';
@@ -66,16 +66,16 @@ import { UserPopupComponent } from './component/user/user-popup.component';
 import { HolidayGridComponent } from './component/holiday/holiday-grid.component';
 import { HolidayComponent } from './component/holiday/holiday.component';
 import { HolidayFormComponent } from './component/holiday/holiday-form.component';
-import { HolidayService } from './service/holiday.service';
+import { HolidayService } from './component/holiday/holiday.service';
 
-import { UserDuplicationValidatorDirective } from './validator/user-duplication-validator.directive';
+import { UserDuplicationValidatorDirective } from './component/user/user-duplication-validator.directive';
 import { ButtonRendererComponent } from './grid/renderer/button-renderer.component';
 import { CheckboxRendererComponent } from './grid/renderer/checkbox-renderer.component';
 import { DeptFormComponent } from './component/dept/dept-form.component';
 import { DeptTreeComponent } from './component/dept/dept-tree.component';
 import { DeptComponent } from './component/dept/dept.component';
-import { MenuService } from './service/menu.service';
-import { DeptService } from './service/dept.service';
+import { MenuService } from './component/menu/menu.service';
+import { DeptService } from './component/dept/dept.service';
 import { CustomHttpInterceptor } from './interceptor/custom-http-interceptor';
 import { UserSessionService } from './service/user-session.service';
 import { CheckableDeptTreeComponent } from './component/dept/checkable-dept-tree.component';
@@ -84,6 +84,9 @@ import { FormCrudButtonGroupComponent } from './component/form-crud-button-group
 import { UserImageUploadComponent } from './component/user/user-image-upload.component';
 import { FormItemInputComponent } from './component/form-item-input/form-item-input.component';
 import { FormItemSelectComponent } from './component/form-item-select/form-item-select.component';
+import { BizTypeFormComponent } from './component/bizcode/biz-type-form.component';
+import { BizCodeComponent } from './component/bizcode/biz-code.component';
+import { AuthorityService } from './component/authority/authority.service';
 
 
 @NgModule({
@@ -154,7 +157,9 @@ import { FormItemSelectComponent } from './component/form-item-select/form-item-
     FormCrudButtonGroupComponent,
     UserImageUploadComponent,
     FormItemInputComponent,
-    FormItemSelectComponent
+    FormItemSelectComponent,
+    BizTypeFormComponent,
+    BizCodeComponent
   ],
   providers: [
     { provide: NZ_I18N, useValue: ko_KR },
@@ -162,6 +167,7 @@ import { FormItemSelectComponent } from './component/form-item-select/form-item-
     { provide: COMPOSITION_BUFFER_MODE, useValue: false},
     LoginService,
     UserService,
+    AuthorityService,
     UserSessionService,
     CommonCodeService,
     MenuService,
@@ -194,7 +200,8 @@ import { FormItemSelectComponent } from './component/form-item-select/form-item-
     DeptSelectComponent,
     HolidayComponent,
     FormCrudButtonGroupComponent,
-    FormItemInputComponent
+    FormItemInputComponent,
+    BizCodeComponent
   ]
 })
 export class CommonFuncModule { }

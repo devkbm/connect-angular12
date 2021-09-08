@@ -1,4 +1,4 @@
-import { ArticleCheck } from './article-check';
+import { ArticleCheck } from './article-check.model';
 
 export class Article {
   constructor(

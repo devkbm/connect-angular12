@@ -7,7 +7,7 @@ import {
 } from '@angular/forms';
 import { NzUploadChangeParam, NzUploadFile } from 'ng-zorro-antd/upload';
 
-import { UserService } from '../../service/user.service';
+import { UserService } from './user.service';
 
 import { AppAlarmService } from '../../service/app-alarm.service';
 import { ResponseObject } from '../../model/response-object';
@@ -16,12 +16,12 @@ import { User } from '../../model/user-info';
 import { AppError } from '../../error/app-error';
 import { UserNotFoundError } from '../../error/user-not-found-error';
 import { ResponseList } from '../../model/response-list';
-import { Authority } from '../../model/authority';
-import { MenuGroup } from '../../model/menu-group';
-import { existingUserValidator } from '../../validator/user-duplication-validator.directive';
+import { Authority } from '../authority/authority.model';
+import { MenuGroup } from '../menu/menu-group.model';
+import { existingUserValidator } from './user-duplication-validator.directive';
 import { FormType, FormBase } from '../../form/form-base';
-import { DeptHierarchy } from '../../model/dept-hierarchy';
-import { DeptService } from '../../service/dept.service';
+import { DeptHierarchy } from '../dept/dept-hierarchy.model';
+import { DeptService } from '../dept/dept.service';
 import { HttpHeaders } from '@angular/common/http';
 import { GlobalProperty } from 'src/app/global-property';
 

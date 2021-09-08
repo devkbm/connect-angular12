@@ -5,7 +5,7 @@ import {
   FormGroup,
   Validators
 } from '@angular/forms';
-import { LoginService } from '../../service/login.service';
+import { LoginService } from './login.service';
 import { UserToken } from '../../model/user-token';
 import { ResponseObject } from '../../model/response-object';
 

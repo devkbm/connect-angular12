@@ -6,18 +6,18 @@ import {
   Validators
 } from '@angular/forms';
 
-import { MenuService } from '../../service/menu.service';
-import { ProgramService } from '../../service/program.service';
+import { MenuService } from './menu.service';
+import { ProgramService } from '../program/program.service';
 import { AppAlarmService } from '../../service/app-alarm.service';
 
 import { ResponseList } from '../../model/response-list';
 import { ResponseObject } from '../../model/response-object';
-import { Menu } from '../../model/menu';
-import { WebResource } from '../../model/web-resource';
-import { MenuHierarchy } from '../../model/menu-hierarchy';
-import { MenuGroup } from '../../model/menu-group';
+import { Menu } from './menu.model';
+import { WebResource } from '../program/web-resource';
+import { MenuHierarchy } from './menu-hierarchy.model';
+import { MenuGroup } from './menu-group.model';
 import { FormBase, FormType } from '../../form/form-base';
-import { existingMenuValidator } from '../../validator/menu-duplication-validator.directive';
+import { existingMenuValidator } from './menu-duplication-validator.directive';
 
 @Component({
   selector: 'app-menu-form',

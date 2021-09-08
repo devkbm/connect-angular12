@@ -1,4 +1,4 @@
-import { Component, Self, Optional, Input } from '@angular/core';
+import { Component, Self, Optional, Input, TemplateRef, SkipSelf } from '@angular/core';
 import { ControlValueAccessor, NgControl } from '@angular/forms';
 
 @Component({
@@ -14,14 +14,23 @@ export class FormItemInputComponent implements ControlValueAccessor {
   @Input() placeholder: string = '';
   @Input() itemId: string = '';
 
-  @Input() errorTpl: any;
+  @Input() errorTpl?: TemplateRef<any>;
+
+/*
+  string | TemplateRef<{
+    $implicit: AbstractControl | NgModel;
+}>
+*/
 
   onChange: any = (_:any) => {};
   onTouched: any = () => {};
 
   _value: any ='';
 
-  constructor(@Self()  @Optional() private ngControl: NgControl) {
+  constructor(
+    @Self()
+    @Optional()
+    private ngControl: NgControl) {
     if (this.ngControl) {
       this.ngControl.valueAccessor = this;
     }
@@ -50,6 +59,7 @@ export class FormItemInputComponent implements ControlValueAccessor {
     //console.log(obj.target.validity);
     this._value = obj.target.value;
     this.onChange(this._value);
+    this.onTouched();
   }
 
 }

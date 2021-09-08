@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild, Output, EventEmitter, Input } from '@angular/core';
-import { ResponseList } from '../../../common/model/response-list';
-import { DeptHierarchy } from '../../model/dept-hierarchy';
+import { ResponseList } from '../../model/response-list';
+import { DeptHierarchy } from './dept-hierarchy.model';
 
-import { DeptService } from '../../service/dept.service';
+import { DeptService } from './dept.service';
 
 import { NzFormatEmitEvent } from 'ng-zorro-antd/tree';
 

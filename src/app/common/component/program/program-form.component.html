@@ -28,8 +28,8 @@
         </nz-form-control>
       </nz-form-item>
 -->
-      <app-form-item-input [itemId]="'resourceName'" formControlName="resourceName" [labelText]="'리소스명'" [required]="true" [errorTpl]="errorTpl" nzErrorTip="필수 입력 값입니다.">
-        <ng-template #errorTpl let-control>
+      <app-form-item-input [itemId]="'resourceName'" formControlName="resourceName" [labelText]="'리소스명'" [required]="true" [errorTpl]="errorTpl2" nzErrorTip="필수 입력 값입니다.">
+        <ng-template #errorTpl2 let-control>
           <ng-container *ngIf="control.hasError('required')">
             Please input!
           </ng-container>

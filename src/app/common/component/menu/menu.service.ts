@@ -4,13 +4,13 @@ import { HttpClient, HttpHeaders, HttpXsrfTokenExtractor } from '@angular/common
 import { Observable } from 'rxjs';
 import { map, tap, catchError } from 'rxjs/operators';
 
-import { DataService } from '../service/data.service';
+import { DataService } from '../../service/data.service';
 
-import { ResponseObject } from '../model/response-object';
-import { ResponseList } from '../model/response-list';
-import { MenuGroup } from '../model/menu-group';
-import { Menu } from '../model/menu';
-import { MenuHierarchy } from '../model/menu-hierarchy';
+import { ResponseObject } from '../../model/response-object';
+import { ResponseList } from '../../model/response-list';
+import { MenuGroup } from './menu-group.model';
+import { Menu } from './menu.model';
+import { MenuHierarchy } from './menu-hierarchy.model';
 
 @Injectable()
 export class MenuService extends DataService {

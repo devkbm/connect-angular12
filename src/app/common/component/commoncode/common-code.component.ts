@@ -3,8 +3,8 @@ import { Location } from '@angular/common';
 import { CommonCodeFormComponent } from './common-code-form.component';
 import { CommonCodeTreeComponent } from './common-code-tree.component';
 import { AppBase } from '../../app/app-base';
-import { CommonCodeService } from '../../service/common-code.service';
-import { CommonCode } from '../../model/common-code';
+import { CommonCodeService } from './common-code.service';
+import { CommonCode } from './common-code.model';
 import { ResponseList } from '../../model/response-list';
 
 @Component({

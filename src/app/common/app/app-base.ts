@@ -2,8 +2,8 @@ import { Location } from '@angular/common';
 import { Observable } from 'rxjs';
 
 import { ResponseObject } from '../model/response-object';
-import { WebResource } from '../model/web-resource';
-import { ProgramService } from '../service/program.service';
+import { WebResource } from '../component/program/web-resource';
+import { ProgramService } from '../component/program/program.service';
 import { AppInjector } from './app-injector.service';
 
 export class AppBase {

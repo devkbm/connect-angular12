@@ -6,12 +6,12 @@ import {
   Validators
 } from '@angular/forms';
 
-import { MenuService } from '../../service/menu.service';
+import { MenuService } from './menu.service';
 import { AppAlarmService } from '../../service/app-alarm.service';
 
 import { ResponseObject } from '../../model/response-object';
-import { MenuGroup } from '../../model/menu-group';
-import { existingMenuGroupValidator } from '../../validator/menu-group-duplication-validator.directive';
+import { MenuGroup } from './menu-group.model';
+import { existingMenuGroupValidator } from './menu-group-duplication-validator.directive';
 import { FormBase, FormType } from '../../form/form-base';
 
 @Component({

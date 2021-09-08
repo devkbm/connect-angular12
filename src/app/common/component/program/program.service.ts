@@ -4,11 +4,11 @@ import { HttpClient, HttpHeaders, HttpParams, HttpXsrfTokenExtractor } from '@an
 import { Observable } from 'rxjs';
 import { map, tap, catchError } from 'rxjs/operators';
 
-import { DataService } from '../../common/service/data.service';
-import { ResponseObject } from '../../common/model/response-object';
-import { ResponseList } from '../../common/model/response-list';
+import { DataService } from '../../service/data.service';
+import { ResponseObject } from '../../model/response-object';
+import { ResponseList } from '../../model/response-list';
 
-import { WebResource } from '../model/web-resource';
+import { WebResource } from './web-resource';
 
 @Injectable()
 export class ProgramService extends DataService {

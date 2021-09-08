@@ -1,13 +1,13 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
-import { UserService } from '../../service/user.service';
 import { AppAlarmService } from '../../service/app-alarm.service';
 
 import { ResponseObject } from '../../model/response-object';
-import { Authority } from '../../model/authority';
+import { Authority } from './authority.model';
 import { FormBase, FormType } from '../../form/form-base';
-import { existingAuthorityValidator } from '../../validator/authority-duplication-validator.directive';
+import { existingAuthorityValidator } from './authority-duplication-validator.directive';
+import { AuthorityService } from './authority.service';
 
 @Component({
   selector: 'app-authority-form',
@@ -23,14 +23,14 @@ export class AuthorityFormComponent extends FormBase implements OnInit {
   @Output() formClosed = new EventEmitter();
 
   constructor(private fb: FormBuilder,
-              private userService: UserService,
+              private service: AuthorityService,
               private appAlarmService: AppAlarmService) { super(); }
 
   ngOnInit() {
     this.fg = this.fb.group({
       authority     : new FormControl(null, {
                                               validators: Validators.required,
-                                              asyncValidators: [existingAuthorityValidator(this.userService)],
+                                              asyncValidators: [existingAuthorityValidator(this.service)],
                                               updateOn: 'blur'
                                             }),
       description   : [ null ]
@@ -54,7 +54,7 @@ export class AuthorityFormComponent extends FormBase implements OnInit {
   }
 
   getAuthority(id: string): void {
-    this.userService
+    this.service
       .getAuthority(id)
       .subscribe(
         (model: ResponseObject<Authority>) => {
@@ -74,7 +74,7 @@ export class AuthorityFormComponent extends FormBase implements OnInit {
 
   saveAuthority(): void {
     console.log('save');
-    this.userService
+    this.service
       .registerAuthority(this.fg.getRawValue())
       .subscribe(
         (model: ResponseObject<Authority>) => {
@@ -89,7 +89,7 @@ export class AuthorityFormComponent extends FormBase implements OnInit {
   }
 
   deleteAuthority(): void {
-    this.userService
+    this.service
       .deleteAuthority(this.fg.get('authority')?.value)
       .subscribe(
         (model: ResponseObject<Authority>) => {

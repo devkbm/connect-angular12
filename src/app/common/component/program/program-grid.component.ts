@@ -1,10 +1,10 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
-import { ProgramService } from '../../service/program.service';
+import { ProgramService } from './program.service';
 import { AppAlarmService } from '../../service/app-alarm.service';
 
 import { ResponseList } from '../../model/response-list';
-import { WebResource } from '../../model/web-resource';
+import { WebResource } from './web-resource';
 import { AggridFunction } from '../../grid/aggrid-function';
 
 @Component({

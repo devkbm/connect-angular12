@@ -8,9 +8,9 @@ import { DataService } from '../../../common/service/data.service';
 import { ResponseObject } from '../../../common/model/response-object';
 import { ResponseList } from '../../../common/model/response-list';
 
-import { Board } from '../model/board';
-import { Article } from '../model/article';
-import { BoardHierarchy } from '../model/board-hierarchy';
+import { Board } from './board.model';
+import { Article } from './article.model';
+import { BoardHierarchy } from './board-hierarchy.model';
 import { GlobalProperty } from 'src/app/global-property';
 
 @Injectable()
@@ -72,7 +72,7 @@ export class BoardService extends DataService {
     return this.http
       .get<ResponseList<BoardHierarchy>>(url, options)
       .pipe(
-          catchError(this.handleError)
+        catchError((err) => Observable.throw(err))
       );
   }
 

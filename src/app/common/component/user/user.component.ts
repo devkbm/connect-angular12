@@ -3,7 +3,7 @@ import { Location } from '@angular/common';
 import { UserGridComponent } from './user-grid.component';
 import { UserFormComponent } from './user-form.component';
 import { AppBase } from '../../app/app-base';
-import { UserService } from '../../service/user.service';
+import { UserService } from './user.service';
 import { ResponseList } from '../../model/response-list';
 
 @Component({

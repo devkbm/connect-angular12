@@ -3,7 +3,7 @@ import { DatePipe } from '@angular/common';
 
 import { ResponseList } from '../../../../common/model/response-list';
 import { WorkGroupService } from '../../service/workgroup.service';
-import { WorkGroupSchedule } from '../../model/workgroup-schedule';
+import { WorkGroupSchedule } from '../../model/workgroup-schedule.model';
 
 import { EventApi, EventInput, FullCalendarComponent } from '@fullcalendar/angular';
 import dayGridPlugin from '@fullcalendar/daygrid';

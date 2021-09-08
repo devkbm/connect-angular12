@@ -4,7 +4,7 @@ import { AuthorityGridComponent } from './authority-grid.component';
 import { AuthorityFormComponent } from './authority-form.component';
 import { AppBase } from '../../app/app-base';
 import { ResponseObject } from '../../model/response-object';
-import { WebResource } from '../../model/web-resource';
+import { WebResource } from '../program/web-resource';
 
 @Component({
   selector: 'app-authority',

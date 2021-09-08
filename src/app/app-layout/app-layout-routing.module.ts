@@ -26,6 +26,7 @@ import { EmployeeMasterComponent } from '../hrm/employee/component/basic-info/em
 import { DeptEmployeeListComponent } from '../hrm/employee/component/dept-employee-list/dept-employee-list.component';
 import { PayitemComponent } from './../hrm/payitem/component/pay-item/payitem.component';
 import { PayTableComponent } from '../hrm/payitem/component/paytable/pay-table.component';
+import { BizCodeComponent } from '../common/component/bizcode/biz-code.component';
 
 
 const layoutroutes: Routes = [
@@ -41,6 +42,8 @@ const layoutroutes: Routes = [
       {path: 'dept',          component: DeptComponent},
       {path: 'term',          component: TermComponent},
       {path: 'holiday',       component: HolidayComponent},
+      {path: 'bizcode',       component: BizCodeComponent},
+
       /* 협업시스템 */
       {path: 'team',          component: TeamComponent},
       {path: 'board',         component: BoardComponent},

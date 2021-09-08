@@ -8,9 +8,9 @@ import {
 } from '@angular/forms';
 import { FormBase, FormType } from '../../form/form-base';
 import { AppAlarmService } from '../../service/app-alarm.service';
-import { HolidayService } from '../../service/holiday.service';
+import { HolidayService } from './holiday.service';
 import { ResponseObject } from '../../model/response-object';
-import { Holiday } from './../../model/holiday';
+import { Holiday } from './holiday.model';
 
 
 @Component({

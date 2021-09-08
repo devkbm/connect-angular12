@@ -6,11 +6,11 @@ import {
   Validators
 } from '@angular/forms';
 
-import { TermService } from '../../service/term.service';
+import { TermService } from './term.service';
 import { AppAlarmService } from '../../service/app-alarm.service';
 
 import { ResponseObject } from '../../model/response-object';
-import { Term } from '../../model/term';
+import { Term } from './term';
 
 @Component({
   selector: 'app-term-form',

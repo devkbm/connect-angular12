@@ -1,11 +1,11 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
-import { UserService } from '../../service/user.service';
+import { AuthorityService } from './authority.service';
 import { AppAlarmService } from '../../service/app-alarm.service';
 
-import { Authority } from '../../model/authority';
 import { ResponseList } from '../../model/response-list';
 import { AggridFunction } from '../../grid/aggrid-function';
+import { Authority } from './authority.model';
 
 @Component({
   selector: 'app-authority-grid',
@@ -20,7 +20,7 @@ export class AuthorityGridComponent extends AggridFunction implements OnInit {
   @Output() rowDoubleClicked = new EventEmitter();
   @Output() editButtonClicked = new EventEmitter();
 
-  constructor(private userService: UserService,
+  constructor(private service: AuthorityService,
               private appAlarmService: AppAlarmService) {
     super();
 
@@ -74,7 +74,7 @@ export class AuthorityGridComponent extends AggridFunction implements OnInit {
   }
 
   getAuthority(params?: any): void {
-    this.userService
+    this.service
         .getAuthorityList(params)
         .subscribe(
             (model: ResponseList<Authority>) => {

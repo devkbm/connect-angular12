@@ -1,4 +1,4 @@
-import { ResponseList } from './../../../../common/model/response-list';
+import { ResponseList } from '../../../../common/model/response-list';
 import { DutyCode } from './../../model/duty-code';
 import { DutyApplication } from './../../model/duty-application';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';

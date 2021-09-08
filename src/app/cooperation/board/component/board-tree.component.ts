@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, Output, EventEmitter, Input } from '@angular/core';
-import { BoardService } from '../service/board.service';
+import { BoardService } from './board.service';
 import { ResponseList } from '../../../common/model/response-list';
-import { BoardHierarchy } from '../model/board-hierarchy';
+import { BoardHierarchy } from './board-hierarchy.model';
 import { NzFormatEmitEvent } from 'ng-zorro-antd/tree';
 
 

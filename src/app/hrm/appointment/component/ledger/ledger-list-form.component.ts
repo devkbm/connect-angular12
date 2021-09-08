@@ -19,8 +19,8 @@ import { AppointmentCode } from '../../model/appointment-code';
 import { LedgerEmployee } from '../../model/ledger-employee';
 import { HrmCodeService } from '../../service/hrm-code.service';
 import { HrmTypeDetailCode } from '../../model/hrm-type-detail-code';
-import { DeptService } from 'src/app/common/service/dept.service';
-import { Dept } from 'src/app/common/model/dept';
+import { DeptService } from 'src/app/common/component/dept/dept.service';
+import { Dept } from 'src/app/common/component/dept/dept.model';
 
 @Component({
   selector: 'app-ledger-list-form',

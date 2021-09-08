@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, Input } from '@angular/core';
-import { Article } from '.././model/article';
+import { Article } from './article.model';
 
 @Component({
   selector: 'app-article-view',

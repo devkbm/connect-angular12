@@ -6,15 +6,15 @@ import {
   Validators
 } from '@angular/forms';
 
-import { DeptService } from '../../service/dept.service';
+import { DeptService } from './dept.service';
 import { AppAlarmService } from '../../service/app-alarm.service';
-import { existingDeptValidator } from '../../validator/dept-duplication-validator.directive';
+import { existingDeptValidator } from './dept-duplication-validator.directive';
 
 
 import { ResponseObject } from '../../model/response-object';
 import { FormBase, FormType } from '../../form/form-base';
-import { Dept } from '../../model/dept';
-import { DeptHierarchy } from '../../model/dept-hierarchy';
+import { Dept } from './dept.model';
+import { DeptHierarchy } from './dept-hierarchy.model';
 import { ResponseList } from '../../model/response-list';
 
 

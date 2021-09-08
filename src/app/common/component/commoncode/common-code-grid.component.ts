@@ -1,12 +1,12 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
-import { CommonCodeService } from '../../service/common-code.service';
+import { CommonCodeService } from './common-code.service';
 import { AppAlarmService } from '../../service/app-alarm.service';
 
 import { ResponseList } from '../../model/response-list';
 
 import { AggridFunction } from '../../grid/aggrid-function';
-import { CommonCode } from '../../model/common-code';
+import { CommonCode } from './common-code.model';
 
 @Component({
   selector: 'app-common-code-grid',

@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild, Output, EventEmitter, Input } from '@angular/core';
-import { ResponseList } from '../../../common/model/response-list';
-import { CommonCodeHierarchy } from '../../model/common-code-hierarchy';
+import { ResponseList } from '../../model/response-list';
+import { CommonCodeHierarchy } from './common-code-hierarchy.model';
 
-import { CommonCodeService } from '../../service/common-code.service';
+import { CommonCodeService } from './common-code.service';
 
 import { NzFormatEmitEvent } from 'ng-zorro-antd/tree';
 

@@ -3,7 +3,7 @@ import { ArticleGridComponent } from './article-grid.component';
 import { BoardFormComponent } from './board-form.component';
 import { BoardTreeComponent } from './board-tree.component';
 import { ArticleFormComponent } from './article-form.component';
-import { Article } from '../model/article';
+import { Article } from './article.model';
 
 @Component({
   selector: 'app-board',

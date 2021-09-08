@@ -9,9 +9,9 @@ import {
 import { ResponseObject } from '../../../../common/model/response-object';
 import { FormBase, FormType } from '../../../../common/form/form-base';
 import { WorkGroupService } from '../../service/workgroup.service';
-import { WorkGroup } from '../../model/workgroup';
-import { WorkGroupMember } from '../../model/workgroup-member';
-import { WorkGroupSchedule } from '../../model/workgroup-schedule';
+import { WorkGroup } from '../../model/workgroup.model';
+import { WorkGroupMember } from '../../model/workgroup-member.model';
+import { WorkGroupSchedule } from '../../model/workgroup-schedule.model';
 import { ResponseList } from '../../../../common/model/response-list';
 
 @Component({

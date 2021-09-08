@@ -4,7 +4,7 @@ import { ResponseList } from '../../../../common/model/response-list';
 import { AppAlarmService } from '../../../../common/service/app-alarm.service';
 
 import { WorkGroupService } from '../../service/workgroup.service';
-import { WorkGroup } from '../../model/workgroup';
+import { WorkGroup } from '../../model/workgroup.model';
 
 @Component({
   selector: 'app-myworkgroup-grid',
