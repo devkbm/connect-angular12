@@ -51,13 +51,13 @@ export class TermGridComponent extends AggridFunction implements OnInit {
         cellStyle: {'text-align': 'center'}
       },
       {headerName: '업무영역',    field: 'domain',            width: 100 },
-      {headerName: '용어',        field: 'term',              width: 150 },
-      {headerName: '한글명',      field: 'nameKor',           width: 150 },
+      {headerName: '용어',        field: 'term',              width: 100 },
+      {headerName: '한글명',      field: 'nameKor',           width: 100 },
       {headerName: '약어',        field: 'abbreviationKor',   width: 100 },
       {headerName: '영어명',      field: 'nameEng',           width: 150 },
-      {headerName: '약어',        field: 'abbreviationEng',   width: 100 },
-      {headerName: '설명',        field: 'description',       width: 150 },
-      {headerName: '비고',        field: 'comment',           width: 150 }
+      {headerName: '약어',        field: 'abbreviationEng',   width: 150 },
+      {headerName: '설명',        field: 'description',       width: 400 , tooltipField: 'description'},
+      {headerName: '비고',        field: 'comment',           width: 400 }
     ];
 
     this.getRowNodeId = function(data: any) {

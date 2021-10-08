@@ -87,6 +87,7 @@ import { FormItemSelectComponent } from './component/form-item-select/form-item-
 import { BizTypeFormComponent } from './component/bizcode/biz-type-form.component';
 import { BizCodeComponent } from './component/bizcode/biz-code.component';
 import { AuthorityService } from './component/authority/authority.service';
+import { BizDetailFormComponent } from './component/bizcode/biz-detail-form.component';
 
 
 @NgModule({
@@ -159,7 +160,8 @@ import { AuthorityService } from './component/authority/authority.service';
     FormItemInputComponent,
     FormItemSelectComponent,
     BizTypeFormComponent,
-    BizCodeComponent
+    BizCodeComponent,
+    BizDetailFormComponent
   ],
   providers: [
     { provide: NZ_I18N, useValue: ko_KR },

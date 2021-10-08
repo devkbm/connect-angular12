@@ -83,9 +83,6 @@
       </nz-form-item>
       -->
 
-      <app-form-item-select [itemId]="'bizType'" [labelText]="'권한'" formControlName="bizType" [options]="bizTypeList" [value]="'code'" [label]="'name'" >
-
-      </app-form-item-select>
     </div>
 
     <div nz-col nzSpan="12">
@@ -104,8 +101,7 @@
 </form>
 
 <div class="footer">
-  <!--
-  <button nz-button (click)="loadForm(fg.get('id')?.value)">
+  <button nz-button (click)="loadForm(fg.get('id')?.value, fg.get('id')?.value)">
     <i nz-icon nzType="search" nzTheme="outline"></i>
     조회
   </button>
@@ -124,17 +120,9 @@
   <nz-divider nzType="vertical"></nz-divider>
   <button nz-button nzType="danger"
     nz-popconfirm nzPopconfirmTitle="삭제하시겠습니까?"
-    (nzOnConfirm)="deleteForm(fg.get('id')?.value)" (nzOnCancel)="false">
+    (nzOnConfirm)="deleteForm(fg.get('id')?.value, fg.get('id')?.value)" (nzOnCancel)="false">
     <i nz-icon nzType="delete" theme="outline"></i>
     삭제
   </button>
-  -->
-  <app-form-crud-button-group
-    (searchClick)="loadForm(fg.get('id')?.value)"
-    (closeClick)="closeForm()"
-    (saveClick)="saveForm()"
-    (deleteClick)="deleteForm(fg.get('id')?.value)">
-  </app-form-crud-button-group>
 
 </div>
-
