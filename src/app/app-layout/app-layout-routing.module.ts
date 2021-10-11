@@ -27,6 +27,7 @@ import { DeptEmployeeListComponent } from '../hrm/employee/component/dept-employ
 import { PayitemComponent } from './../hrm/payitem/component/pay-item/payitem.component';
 import { PayTableComponent } from '../hrm/payitem/component/paytable/pay-table.component';
 import { BizCodeComponent } from '../common/component/bizcode/biz-code.component';
+import { StaffRegistFormComponent } from '../hrm/staff/staff-regist-form.component';
 
 
 const layoutroutes: Routes = [
@@ -48,18 +49,19 @@ const layoutroutes: Routes = [
       {path: 'team',          component: TeamComponent},
       {path: 'board',         component: BoardComponent},
       {path: 'workgroup',     component: WorkgroupComponent},
-      {path: 'surveyform',      component: SurveyFormComponent},
+      {path: 'surveyform',    component: SurveyFormComponent},
       /* 인사시스템 */
-      {path: 'hrmtype',      component: HrmTypeComponent},
+      {path: 'hrmtype',           component: HrmTypeComponent},
       {path: 'relationcode',      component: HrmRelationCodeComponent},
-      {path: 'appointmentcode',     component: AppointmentCodeComponent},
-      {path: 'appointmentledger',   component: LedgerComponent},
-      {path: 'employee',      component: EmployeeMasterComponent},
-      {path: 'deptemployeelist',      component: DeptEmployeeListComponent},
-      {path: 'dutycode',      component: DutyCodeComponent},
-      {path: 'dutyapplication',      component: DutyApplicationComponent},
-      {path: 'payitem',      component: PayitemComponent},
-      {path: 'paytable',      component: PayTableComponent}
+      {path: 'appointmentcode',   component: AppointmentCodeComponent},
+      {path: 'appointmentledger', component: LedgerComponent},
+      {path: 'employee',          component: EmployeeMasterComponent},
+      {path: 'deptemployeelist',  component: DeptEmployeeListComponent},
+      {path: 'dutycode',          component: DutyCodeComponent},
+      {path: 'dutyapplication',   component: DutyApplicationComponent},
+      {path: 'payitem',           component: PayitemComponent},
+      {path: 'paytable',          component: PayTableComponent},
+      {path: 'staff',             component: StaffRegistFormComponent}
     ]
   }
 ];

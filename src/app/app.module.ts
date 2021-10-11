@@ -17,8 +17,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GlobalProperty } from './global-property';
 import { AppLayoutModule } from './app-layout/app-layout.module';
-
+import { AppInjector } from './common/app/app-injector.service';
 import { CommonFuncModule } from './common/common-func.module';
+
 import { BoardModule } from './cooperation/board/board.module';
 import { CommunicationModule } from './cooperation/communication/communication.module';
 import { SurveyModule } from './cooperation/survey/survey.module';
@@ -27,7 +28,7 @@ import { AppointmentModule } from './hrm/appointment/appointment.module';
 import { DutyModule } from './hrm/duty/duty.module';
 import { EmployeeModule } from './hrm/employee/employee.module';
 import { PayitemModule } from './hrm/payitem/payitem.module';
-import { AppInjector } from './common/app/app-injector.service';
+import { StaffModule } from './hrm/staff/staff.module';
 
 registerLocaleData(ko);
 
@@ -57,7 +58,8 @@ registerLocaleData(ko);
     AppointmentModule,
     EmployeeModule,
     DutyModule,
-    PayitemModule
+    PayitemModule,
+    StaffModule
   ],
   providers: [
     { provide: NZ_I18N, useValue: ko_KR },

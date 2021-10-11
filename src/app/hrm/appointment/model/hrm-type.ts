@@ -4,6 +4,6 @@ export class HrmType {
     public codeName: string,
     public useYn: boolean,
     public sequence: number,
-    public hrmType: string,
+    public appointmentType: string,
     public comment: string) {}
 }

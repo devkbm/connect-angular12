@@ -50,11 +50,11 @@ export class HrmTypeGridComponent extends AggridFunction implements OnInit {
         width: 70,
         cellStyle: {'text-align': 'center'}
       },
-      { headerName: '코드',         field: 'code',          width: 150 },
-      { headerName: '코드명',       field: 'codeName',      width: 200 },
-      { headerName: '설명',         field: 'comment',       width: 200 },
-      { headerName: '순번',         field: 'sequence',      width: 80 },
-      { headerName: '발령구분',     field: 'hrmType',       width: 150 }
+      { headerName: '코드',         field: 'code',            width: 150 },
+      { headerName: '코드명',       field: 'codeName',        width: 200 },
+      { headerName: '설명',         field: 'comment',         width: 200 },
+      { headerName: '순번',         field: 'sequence',        width: 80 },
+      { headerName: '발령구분',     field: 'appointmentType', width: 150 }
     ];
 
     this.defaultColDef = {

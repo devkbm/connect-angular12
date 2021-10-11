@@ -19,7 +19,7 @@ import { existingHrmTypeValidator } from '../../validator/hrm-type-duplication-v
 })
 export class HrmTypeFormComponent extends FormBase implements OnInit {
 
-  hrmTypeList: any[] = [];
+  appointmentTypeList: any[] = [];
   fg: FormGroup = new FormGroup({});
 
   constructor(private fb: FormBuilder,
@@ -39,7 +39,7 @@ export class HrmTypeFormComponent extends FormBase implements OnInit {
       codeName  : [ null, [ Validators.required ] ],
       useYn     : [ null ],
       sequence  : [ null ],
-      hrmType   : [ null ],
+      appointmentType   : [ null ],
       comment   : [ null ]
     });
 
@@ -71,7 +71,7 @@ export class HrmTypeFormComponent extends FormBase implements OnInit {
         .subscribe(
           (model: ResponseList<any>) => {
             if ( model.total > 0 ) {
-              this.hrmTypeList = model.data;
+              this.appointmentTypeList = model.data;
             }
           },
           (err) => {

@@ -59,9 +59,9 @@
           발령시사용구분
         </nz-form-label>
         <nz-form-control [nzXs]="defaultControlSize.xs" [nzSm]="defaultControlSize.sm">
-          <nz-select formControlName="hrmType" [nzSize]="'default'" nzShowSearch nzPlaceHolder="인사유형을 선택해주세요.">
-            <nz-option *ngFor="let option of hrmTypeList"
-                [nzLabel]="option.name"
+          <nz-select formControlName="appointmentType" [nzSize]="'default'" nzShowSearch nzPlaceHolder="인사유형을 선택해주세요.">
+            <nz-option *ngFor="let option of appointmentTypeList"
+                [nzLabel]="option.codeName"
                 [nzValue]="option.code">
             </nz-option>
           </nz-select>

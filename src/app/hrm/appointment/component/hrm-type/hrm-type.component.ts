@@ -68,7 +68,7 @@ export class HrmTypeComponent extends AppBase implements OnInit {
 
   public refreshGridHrmTypeCode(): void {
     this.closeDrawerHrmTypeCode();
-    console.log(this.selectedHrmTypeRow?.hrmType);
+    console.log(this.selectedHrmTypeRow?.appointmentType);
     this.gridHrmTypeCode.getGridList(this.selectedHrmTypeRow.code);
   }
 
