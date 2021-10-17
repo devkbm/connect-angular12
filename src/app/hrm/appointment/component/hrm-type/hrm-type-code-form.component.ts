@@ -71,12 +71,12 @@ export class HrmTypeCodeFormComponent extends FormBase implements OnInit {
   }
 
   public select(param: any) {
-    this.getHrmTypeDetailCode(param.value['id']);
+    this.getHrmTypeDetailCode(param.value['codetype'], param.value['code']);
   }
 
-  public getHrmTypeDetailCode(id: string): void {
+  public getHrmTypeDetailCode(codeType: string, code: string): void {
     this.hrmCodeService
-        .getHrmTypeDetailCode(id)
+        .getHrmTypeDetailCode(codeType, code)
         .subscribe(
           (model: ResponseObject<HrmTypeDetailCode>) => {
             if ( model.total > 0 ) {
@@ -110,7 +110,7 @@ export class HrmTypeCodeFormComponent extends FormBase implements OnInit {
 
   public deleteHrmTypeDetailCode(): void {
     this.hrmCodeService
-        .deleteHrmTypeDetailCode(this.fg.get('id')?.value)
+        .deleteHrmTypeDetailCode(this.fg.get('codeType')?.value, this.fg.get('code')?.value)
         .subscribe(
             (model: ResponseObject<HrmTypeDetailCode>) => {
             this.appAlarmService.changeMessage(model.message);

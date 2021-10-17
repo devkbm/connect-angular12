@@ -2,8 +2,11 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { FormBase, FormType } from 'src/app/common/form/form-base';
+import { ResponseList } from 'src/app/common/model/response-list';
 import { ResponseObject } from 'src/app/common/model/response-object';
 import { AppAlarmService } from 'src/app/common/service/app-alarm.service';
+import { HrmTypeDetailCode } from '../appointment/model/hrm-type-detail-code';
+import { HrmCodeService } from '../appointment/service/hrm-code.service';
 import { StaffAppointmentRecord } from './staff-appointment-record.model';
 import { StaffAppointmentRecordService } from './staff-appointment-record.service';
 
@@ -15,12 +18,58 @@ import { StaffAppointmentRecordService } from './staff-appointment-record.servic
 export class StaffAppointmentRecordFormComponent extends FormBase implements OnInit {
 
   fg: FormGroup = new FormGroup({});
+  bizTypeList = [{code:'code', name:'name'},{code:'code2', name:'name2'}];
+
+  /**
+   * https://soopdop.github.io/2020/12/01/index-signatures-in-typescript/
+   * string literal로 접근하기위한 변수
+   */
+  [key: string]: any;
+
+  /**
+   * 직군코드 - HR0001
+   */
+  groupJobCodeList: HrmTypeDetailCode[];
+  /**
+   * 직위코드 - HR0002
+   */
+  jobPositionCodeList: HrmTypeDetailCode[];
+  /**
+   * 직종코드 - HR0003
+   */
+  occupationCodeList: HrmTypeDetailCode[];
+  /**
+   * 직급코드 - HR0004
+   */
+  jobGradeCodeList: HrmTypeDetailCode[];
+  /**
+   * 호봉코드 - HR0005
+   */
+  payStepCodeList: HrmTypeDetailCode[];
+  /**
+   * 직무코드 - HR0006
+   */
+  jobCodeList: HrmTypeDetailCode[];
+  /**
+   * 직책코드 - HR0007
+   */
+  dutyResponsibilityCodeList: HrmTypeDetailCode[];
 
   constructor(private fb: FormBuilder,
               private staffAppointmentRecordService: StaffAppointmentRecordService,
+              private hrmCodeService: HrmCodeService,
               private appAlarmService: AppAlarmService) { super(); }
 
   ngOnInit(): void {
+    this.getHrmTypeDetailCodeList('HR0001', "groupJobCodeList");
+    this.getHrmTypeDetailCodeList('HR0002', "jobPositionCodeList");
+    this.getHrmTypeDetailCodeList('HR0003', "occupationCodeList");
+    this.getHrmTypeDetailCodeList('HR0004', "jobGradeCodeList");
+    this.getHrmTypeDetailCodeList('HR0005', "payStepCodeList");
+    this.getHrmTypeDetailCodeList('HR0006', "jobCodeList");
+    this.getHrmTypeDetailCodeList('HR0007', "dutyResponsibilityCodeList");
+
+
 
     this.fg = this.fb.group({
       staffId             : [ null, [ Validators.required ] ],
@@ -45,6 +94,8 @@ export class StaffAppointmentRecordFormComponent extends FormBase implements OnI
 
   newForm(): void {
     this.formType = FormType.NEW;
+
+    this.fg.reset();
   }
 
   modifyForm(formData: StaffAppointmentRecord): void {
@@ -107,4 +158,125 @@ export class StaffAppointmentRecordFormComponent extends FormBase implements OnI
   closeForm() {
     this.formClosed.emit(this.fg.getRawValue());
   }
+  // [key: string]: any
+  private getHrmTypeDetailCodeList(typeId: string, propertyName: string): void {
+    const params = {
+      typeId : typeId
+    };
+
+    this.hrmCodeService
+        .getHrmTypeDetailCodeList(params)
+        .subscribe(
+          (model: ResponseList<HrmTypeDetailCode>) => {
+            if ( model.total > 0 ) {
+              this[propertyName] = model.data;
+            } else {
+              //list = [];
+            }
+            this.appAlarmService.changeMessage(model.message);
+          },
+          (err) => {
+            console.log(err);
+          },
+          () => {}
+      );
+
+  }
+
+  private getGroupJobCodeList(): void {
+    const params = {
+      typeId : 'HR0001'
+    };
+
+    this.hrmCodeService
+        .getHrmTypeDetailCodeList(params)
+        .subscribe(
+          (model: ResponseList<HrmTypeDetailCode>) => {
+            if ( model.total > 0 ) {
+              this.groupJobCodeList = model.data;
+            } else {
+              this.groupJobCodeList = [];
+            }
+            this.appAlarmService.changeMessage(model.message);
+          },
+          (err) => {
+            console.log(err);
+          },
+          () => {}
+      );
+  }
+
+  private getJobPositionCodeList(): void {
+    const params = {
+      typeId : 'HR0002'
+    };
+
+    this.hrmCodeService
+        .getHrmTypeDetailCodeList(params)
+        .subscribe(
+          (model: ResponseList<HrmTypeDetailCode>) => {
+            if ( model.total > 0 ) {
+              this.jobPositionCodeList = model.data;
+            } else {
+              this.jobPositionCodeList = [];
+            }
+            this.appAlarmService.changeMessage(model.message);
+          },
+          (err) => {
+            console.log(err);
+          },
+          () => {}
+      );
+  }
+
+  private getOccupationCodeList(): void {
+    const params = {
+      typeId : 'HR0003'
+    };
+
+    this.hrmCodeService
+        .getHrmTypeDetailCodeList(params)
+        .subscribe(
+          (model: ResponseList<HrmTypeDetailCode>) => {
+            if ( model.total > 0 ) {
+              this.occupationCodeList = model.data;
+            } else {
+              this.occupationCodeList = [];
+            }
+            this.appAlarmService.changeMessage(model.message);
+          },
+          (err) => {
+            console.log(err);
+          },
+          () => {}
+      );
+  }
+
+  private getJobGradeCodeList(): void {
+    const params = {
+      typeId : 'HR0004'
+    };
+
+    this.hrmCodeService
+        .getHrmTypeDetailCodeList(params)
+        .subscribe(
+          (model: ResponseList<HrmTypeDetailCode>) => {
+            if ( model.total > 0 ) {
+              this.jobGradeCodeList = model.data;
+            } else {
+              this.jobGradeCodeList = [];
+            }
+            this.appAlarmService.changeMessage(model.message);
+          },
+          (err) => {
+            console.log(err);
+          },
+          () => {}
+      );
+  }
+  //jobGradeCodeList: HrmTypeDetailCode[];
+  //payStepCodeList: HrmTypeDetailCode[];
+  //jobCode: HrmTypeDetailCode[];
+  //dutyResponsibilityCodeList: HrmTypeDetailCode[];
+
 }

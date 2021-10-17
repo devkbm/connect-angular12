@@ -99,7 +99,7 @@
 </form>
 
 <div class="footer">
-  <button nz-button (click)="getHrmTypeDetailCode(fg.get('id')?.value)">
+  <button nz-button (click)="getHrmTypeDetailCode(this.fg.get('codeType')?.value, this.fg.get('code')?.value)">
     <i nz-icon nzType="search" nzTheme="outline"></i>
     조회
   </button>

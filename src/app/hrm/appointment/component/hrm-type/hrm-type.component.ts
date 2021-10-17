@@ -43,6 +43,7 @@ export class HrmTypeComponent extends AppBase implements OnInit {
   }
 
   selectHrmType(row: any): void {
+    console.log(row);
     this.selectedHrmTypeRow = row;
     this.gridHrmTypeCode.getGridList(row.code);
   }
@@ -78,7 +79,8 @@ export class HrmTypeComponent extends AppBase implements OnInit {
   }
 
   public editHrmTypeCodeForm(row: any): void {
-    this.formHrmTypeCode.getHrmTypeDetailCode(row.code);
+    console.log(row);
+    this.formHrmTypeCode.getHrmTypeDetailCode(row.codeType, row.code);
     this.drawerVisibleHrmTypeCode = true;
   }
 

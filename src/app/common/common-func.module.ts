@@ -202,6 +202,7 @@ import { BizDetailFormComponent } from './component/bizcode/biz-detail-form.comp
     DeptSelectComponent,
     HolidayComponent,
     FormCrudButtonGroupComponent,
+    FormItemSelectComponent,
     FormItemInputComponent,
     BizCodeComponent
   ]
