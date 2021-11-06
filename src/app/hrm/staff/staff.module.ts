@@ -11,6 +11,7 @@ import { CheckboxRendererComponent } from 'src/app/common/grid/renderer/checkbox
 
 import { StaffRegistFormComponent } from './staff-regist-form.component';
 import { StaffAppointmentRecordFormComponent } from './staff-appointment-record-form.component';
+import { StaffAppointmentRecordGridComponent } from './staff-appointment-record-grid.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { StaffAppointmentRecordFormComponent } from './staff-appointment-record-
   ],
   declarations: [
     StaffRegistFormComponent,
-    StaffAppointmentRecordFormComponent
+    StaffAppointmentRecordFormComponent,
+    StaffAppointmentRecordGridComponent
   ],
   exports: [
     StaffRegistFormComponent,

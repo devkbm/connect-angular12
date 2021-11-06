@@ -18,6 +18,18 @@ export class StaffAppointmentRecordService extends DataService {
     super('/hrm/staff', http, tokenExtractor);
   }
 
+  getStaffAppointmentRecordList(staffId: string): Observable<ResponseList<StaffAppointmentRecord>> {
+    const url = `${this.API_URL}/${staffId}/appointmentrecord`;
+    const options = {
+      headers: this.getAuthorizedHttpHeaders(),
+      withCredentials: true
+    };
+
+    return this.http.get<ResponseList<StaffAppointmentRecord>>(url, options).pipe(
+      catchError(this.handleError<ResponseList<StaffAppointmentRecord>>('getStaffAppointmentRecordList', undefined))
+    );
+  }
+
   getStaffAppointmentRecord(staffId: string, id: string): Observable<ResponseObject<StaffAppointmentRecord>> {
     const url = `${this.API_URL}/${staffId}/appointmentrecord/${id}`;
     const options = {

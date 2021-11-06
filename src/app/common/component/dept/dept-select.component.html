@@ -1,12 +1,16 @@
-<nz-select                    
-    nzShowSearch    
-    [formControlName]="formControlName"
-    [style.width]="width"
-    [nzSize]="'default'"    
-    nzPlaceHolder="Please select">
+<nz-select
+  class="app-dept-select"
+  nzShowSearch
+  [nzSize]="'default'"
+  [(ngModel)]="_value"
+  [nzDisabled]="disabled"
+  [nzPlaceHolder]="placeholder"
+  nzShowSearch
+  (blur)="onTouched($event)"
+  (ngModelChange)="changeFn($event)">
     <nz-option
         *ngFor="let option of deptList"
         [nzLabel]="option.deptNameKorean + '[' + option.deptCode + ']'"
         [nzValue]="option.deptCode">
     </nz-option>
-</nz-select>    
+</nz-select>

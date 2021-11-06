@@ -1,5 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Dept } from 'src/app/common/component/dept/dept.model';
+import { DeptService } from 'src/app/common/component/dept/dept.service';
 
 import { FormBase, FormType } from 'src/app/common/form/form-base';
 import { ResponseList } from 'src/app/common/model/response-list';
@@ -55,9 +57,12 @@ export class StaffAppointmentRecordFormComponent extends FormBase implements OnI
    */
   dutyResponsibilityCodeList: HrmTypeDetailCode[];
 
+  //deptList: Dept[];
+
   constructor(private fb: FormBuilder,
               private staffAppointmentRecordService: StaffAppointmentRecordService,
               private hrmCodeService: HrmCodeService,
+              private deptService: DeptService,
               private appAlarmService: AppAlarmService) { super(); }
 
   ngOnInit(): void {
@@ -68,8 +73,6 @@ export class StaffAppointmentRecordFormComponent extends FormBase implements OnI
     this.getHrmTypeDetailCodeList('HR0005', "payStepCodeList");
     this.getHrmTypeDetailCodeList('HR0006', "jobCodeList");
     this.getHrmTypeDetailCodeList('HR0007', "dutyResponsibilityCodeList");
-
-
 
     this.fg = this.fb.group({
       staffId             : [ null, [ Validators.required ] ],
@@ -155,8 +158,9 @@ export class StaffAppointmentRecordFormComponent extends FormBase implements OnI
         );*/
   }
 
-  closeForm() {
-    this.formClosed.emit(this.fg.getRawValue());
+  closeForm(grid: any) {
+    grid.getGridList(this.fg.get('staffId')?.value);
+    //this.formClosed.emit(this.fg.getRawValue());
   }
   // [key: string]: any
   private getHrmTypeDetailCodeList(typeId: string, propertyName: string): void {
@@ -183,21 +187,13 @@ export class StaffAppointmentRecordFormComponent extends FormBase implements OnI
 
   }
 
-  private getGroupJobCodeList(): void {
-    const params = {
-      typeId : 'HR0001'
-    };
-
-    this.hrmCodeService
-        .getHrmTypeDetailCodeList(params)
+  /*
+  private getDeptList(): void {
+    this.deptService
+        .getDeptList()
         .subscribe(
-          (model: ResponseList<HrmTypeDetailCode>) => {
-            if ( model.total > 0 ) {
-              this.groupJobCodeList = model.data;
-            } else {
-              this.groupJobCodeList = [];
-            }
-            this.appAlarmService.changeMessage(model.message);
+          (model: ResponseList<Dept>) => {
+            this.deptList = model.data;
           },
           (err) => {
             console.log(err);
@@ -205,78 +201,6 @@ export class StaffAppointmentRecordFormComponent extends FormBase implements OnI
           () => {}
       );
   }
-
-  private getJobPositionCodeList(): void {
-    const params = {
-      typeId : 'HR0002'
-    };
-
-    this.hrmCodeService
-        .getHrmTypeDetailCodeList(params)
-        .subscribe(
-          (model: ResponseList<HrmTypeDetailCode>) => {
-            if ( model.total > 0 ) {
-              this.jobPositionCodeList = model.data;
-            } else {
-              this.jobPositionCodeList = [];
-            }
-            this.appAlarmService.changeMessage(model.message);
-          },
-          (err) => {
-            console.log(err);
-          },
-          () => {}
-      );
-  }
-
-  private getOccupationCodeList(): void {
-    const params = {
-      typeId : 'HR0003'
-    };
-
-    this.hrmCodeService
-        .getHrmTypeDetailCodeList(params)
-        .subscribe(
-          (model: ResponseList<HrmTypeDetailCode>) => {
-            if ( model.total > 0 ) {
-              this.occupationCodeList = model.data;
-            } else {
-              this.occupationCodeList = [];
-            }
-            this.appAlarmService.changeMessage(model.message);
-          },
-          (err) => {
-            console.log(err);
-          },
-          () => {}
-      );
-  }
-
-  private getJobGradeCodeList(): void {
-    const params = {
-      typeId : 'HR0004'
-    };
-
-    this.hrmCodeService
-        .getHrmTypeDetailCodeList(params)
-        .subscribe(
-          (model: ResponseList<HrmTypeDetailCode>) => {
-            if ( model.total > 0 ) {
-              this.jobGradeCodeList = model.data;
-            } else {
-              this.jobGradeCodeList = [];
-            }
-            this.appAlarmService.changeMessage(model.message);
-          },
-          (err) => {
-            console.log(err);
-          },
-          () => {}
-      );
-  }
-  //jobGradeCodeList: HrmTypeDetailCode[];
-  //payStepCodeList: HrmTypeDetailCode[];
-  //jobCode: HrmTypeDetailCode[];
-  //dutyResponsibilityCodeList: HrmTypeDetailCode[];
+  */
 
 }
