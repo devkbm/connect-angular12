@@ -5,7 +5,7 @@ import { ICellRendererParams } from 'ag-grid-community';
 @Component({
   selector: 'app-checkbox-renderer',
   template: `
-    <label nz-checkbox [(ngModel)]="value" [nzDisabled]="disabled" (click)="onClick($event)" (change)="onChange($event)">
+    <label nz-checkbox [(ngModel)]="_value" [nzDisabled]="disabled" (click)="onClick($event)" (change)="onChange($event)">
       {{label}}
     </label>
   `,
@@ -16,14 +16,14 @@ export class CheckboxRendererComponent implements ICellRendererAngularComp {
   params: any;
   disabled: any;
   label: string;
-  value: any;
+  _value: any;
 
   agInit(params: ICellRendererParams): void {
     this.params = params;
 
     this.label = this.params.label || null;
     this.disabled = this.params.disabled;
-    this.value = params.data[this.params.colDef.field];
+    this._value = params.data[this.params.colDef.field];
   }
 
   refresh(params: any): boolean {
@@ -43,7 +43,7 @@ export class CheckboxRendererComponent implements ICellRendererAngularComp {
   }
 
   onChange(event: any) {
-    this.params.data[this.params.colDef.field] = this.value;
+    this.params.data[this.params.colDef.field] = this._value;
   }
 
 

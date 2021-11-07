@@ -14,7 +14,7 @@ import { WebResource } from './web-resource';
 export class ProgramService extends DataService {
 
   constructor(http: HttpClient, tokenExtractor: HttpXsrfTokenExtractor) {
-    super('/common/webresource', http, tokenExtractor);
+    super('/api/common/webresource', http, tokenExtractor);
   }
 
   getProgramList(params?: any): Observable<ResponseList<WebResource>> {

@@ -7,28 +7,8 @@ import { HttpClientModule, HttpClientXsrfModule, HTTP_INTERCEPTORS } from '@angu
 
 /* NG-ZORRO */
 import { NZ_I18N, ko_KR } from 'ng-zorro-antd/i18n';
-// import { AllNgZorroModule } from './../all-ng-zorro.module';
 import { AllNgZorroModule } from 'src/app/all-ng-zorro.module';
 import { NzModalService } from 'ng-zorro-antd/modal';
-/*
-import { NzFormModule } from 'ng-zorro-antd/form';
-import { NzSelectModule } from 'ng-zorro-antd/select';
-import { NzTreeModule } from 'ng-zorro-antd/tree';
-import { NzTreeSelectModule } from 'ng-zorro-antd/tree-select';
-import { NzDrawerModule } from 'ng-zorro-antd/drawer';
-import { NzInputModule } from 'ng-zorro-antd/input';
-import { NzDividerModule } from 'ng-zorro-antd/divider';
-import { NzPageHeaderModule } from 'ng-zorro-antd/page-header';
-import { NzCardModule } from 'ng-zorro-antd/card';
-import { NzDescriptionsModule } from 'ng-zorro-antd/descriptions';
-import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
-import { NzInputNumberModule } from 'ng-zorro-antd/input-number';
-import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
-import { NzUploadModule } from 'ng-zorro-antd/upload';
-import { NzModalModule } from 'ng-zorro-antd/modal';
-import { NzIconModule } from 'ng-zorro-antd/icon';
-import { NzAvatarModule } from 'ng-zorro-antd/avatar';
-*/
 
 /* AG-GRID */
 import { AgGridModule } from 'ag-grid-angular';
@@ -102,23 +82,6 @@ import { BizDetailFormComponent } from './component/bizcode/biz-detail-form.comp
     AppRoutingModule,
     AgGridModule.withComponents([ButtonRendererComponent, CheckboxRendererComponent]),
     AllNgZorroModule
-    /*NzFormModule,
-    NzSelectModule,
-    NzTreeModule,
-    NzTreeSelectModule,
-    NzDrawerModule,
-    NzInputModule,
-    NzDividerModule,
-    NzPageHeaderModule,
-    NzCardModule,
-    NzDescriptionsModule,
-    NzDatePickerModule,
-    NzInputNumberModule,
-    NzCheckboxModule,
-    NzUploadModule,
-    NzModalModule,
-    NzAvatarModule,
-    NzIconModule*/
   ],
   declarations: [
     UserDuplicationValidatorDirective,

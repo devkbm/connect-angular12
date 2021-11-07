@@ -19,10 +19,13 @@ export class HolidayService extends DataService {
   }
 
   getHolidayList(fromDate: any, toDate: any): Observable<ResponseList<Holiday>> {
-    const url = `${this.API_URL}/holiday/${fromDate}/${toDate}`;
+    const url = `${this.API_URL}/holiday`;
+    const params = {fromDate: fromDate, toDate: toDate};
+
     const options = {
         headers: this.getAuthorizedHttpHeaders(),
-        withCredentials: true
+        withCredentials: true,
+        params: params
      };
 
     return this.http.get<ResponseList<Holiday>>(url, options).pipe(
