@@ -38,7 +38,7 @@
         </nz-form-label>
         <nz-form-control [nzXs]="defaultControlSize.xs" [nzSm]="defaultControlSize.sm">
           <nz-select formControlName="empId" nzShowSearch
-              [nzSize]="'default'" [nzDisabled]="this.formType == 'MODIFY'" nzPlaceHolder="Please select">
+               [nzDisabled]="this.formType == 'MODIFY'" nzPlaceHolder="Please select">
             <nz-option
                 *ngFor="let option of employeeList"
                 [nzLabel]="option.name + '[' + option.id + ']'"
@@ -56,7 +56,7 @@
         </nz-form-label>
         <nz-form-control [nzXs]="defaultControlSize.xs" [nzSm]="defaultControlSize.sm">
           <nz-select formControlName="appointmentCode" nzShowSearch
-              [nzSize]="'default'" nzPlaceHolder="Please select"
+               nzPlaceHolder="Please select"
               (ngModelChange)="appointmentCodeChanged($event)">
             <nz-option *ngFor="let option of appointmentCodeList"
                 [nzLabel]="option.codeName"
@@ -148,7 +148,7 @@
             </nz-form-label>
             <nz-form-control [nzXs]="defaultControlSize.xs" [nzSm]="defaultControlSize.sm">
               <nz-select *ngIf="list.get('changeType')?.value == 'JOB'"
-                  formControlName="changeCode" nzShowSearch [nzSize]="'default'"
+                  formControlName="changeCode" nzShowSearch
                   nzPlaceHolder="Please select">
                   <nz-option *ngFor="let option of comboList[i]"
                       [nzLabel]="option.codeName" [nzValue]="option.code"
@@ -157,7 +157,7 @@
               </nz-select>
 
               <nz-select *ngIf="list.get('changeType')?.value == 'DEPT'"
-                  formControlName="changeCode" nzShowSearch [nzSize]="'default'"
+                  formControlName="changeCode" nzShowSearch
                   nzPlaceHolder="Please select">
                   <nz-option *ngFor="let option of comboList[i]"
                       [nzLabel]="option.deptNameKorean" [nzValue]="option.deptCode">
@@ -188,21 +188,21 @@
   </button>
   <nz-divider nzType="vertical"></nz-divider>
   <button nz-button (click)="closeForm()">
-    <i nz-icon nzType="form" theme="outline"></i>
+    <i nz-icon nzType="form" nzTheme="outline"></i>
     닫기
   </button>
   <nz-divider nzType="vertical"></nz-divider>
   <button nz-button nzType="primary"
     nz-popconfirm nzPopconfirmTitle="저장하시겠습니까?"
     (nzOnConfirm)="submitForm()" (nzOnCancel)="false">
-    <i nz-icon nzType="save" theme="outline"></i>
+    <i nz-icon nzType="save" nzTheme="outline"></i>
     저장
   </button>
   <nz-divider nzType="vertical"></nz-divider>
-  <button nz-button nzType="danger"
+  <button nz-button nzDanger
     nz-popconfirm nzPopconfirmTitle="삭제하시겠습니까?"
     (nzOnConfirm)="deleteForm()" (nzOnCancel)="false">
-    <i nz-icon nzType="delete" theme="outline"></i>
+    <i nz-icon nzType="delete" nzTheme="outline"></i>
     삭제
   </button>
 

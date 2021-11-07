@@ -1,5 +1,5 @@
 <button nz-button (click)="closeButtonClick($event)">
-  <i nz-icon nzType="form" theme="outline"></i>
+  <i nz-icon nzType="form" nzTheme="outline"></i>
   닫기
 </button>
 <nz-divider nzType="vertical"></nz-divider>
@@ -11,14 +11,14 @@
 <button nz-button nzType="primary"
   nz-popconfirm nzPopconfirmTitle="저장하시겠습니까?"
   (nzOnConfirm)="saveButtonClick()" (nzOnCancel)="false">
-  <i nz-icon nzType="save" theme="outline"></i>
+  <i nz-icon nzType="save" nzTheme="outline"></i>
   저장
 </button>
 <nz-divider nzType="vertical"></nz-divider>
 <button nz-button nzDanger
   nz-popconfirm nzPopconfirmTitle="삭제하시겠습니까?"
   (nzOnConfirm)="deleteButtonClick()" (nzOnCancel)="false">
-  <i nz-icon nzType="delete" theme="outline"></i>
+  <i nz-icon nzType="delete" nzTheme="outline"></i>
   삭제
 </button>
 

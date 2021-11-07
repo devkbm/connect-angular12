@@ -17,7 +17,7 @@
               id="menuGroupCode"
               formControlName="menuGroupCode"
               nzShowSearch
-              [nzSize]="'default'"
+
               nzPlaceHolder="Please select"
               (ngModelChange)="selectMenuGroup($event)">
               <nz-option
@@ -118,7 +118,7 @@
           <nz-select
               id="menuType"
               formControlName="menuType"
-              [nzSize]="'default'"
+
               nzShowSearch
               nzAllowClear
               nzPlaceHolder="메뉴타입을 선택해주세요.">
@@ -150,7 +150,7 @@
           <nz-select
               id="resource"
               formControlName="resource"
-              [nzSize]="'default'"
+
               nzShowSearch
               nzAllowClear
               nzPlaceHolder="프로그램을 선택해주세요.">
@@ -196,21 +196,21 @@
 
 <div class="footer">
   <button nz-button (click)="closeForm()">
-      <i nz-icon nzType="form" theme="outline"></i>
+      <i nz-icon nzType="form" nzTheme="outline"></i>
       닫기
   </button>
   <nz-divider nzType="vertical"></nz-divider>
   <button nz-button nzType="primary"
       nz-popconfirm nzPopconfirmTitle="저장하시겠습니까?"
       (nzOnConfirm)="submitMenu()" (nzOnCancel)="false">
-      <i nz-icon nzType="save" theme="outline"></i>
+      <i nz-icon nzType="save" nzTheme="outline"></i>
       저장
   </button>
   <nz-divider nzType="vertical"></nz-divider>
-  <button nz-button nzType="danger"
+  <button nz-button nzDanger
       nz-popconfirm nzPopconfirmTitle="삭제하시겠습니까?"
       (nzOnConfirm)="deleteMenu()" (nzOnCancel)="false">
-      <i nz-icon nzType="delete" theme="outline"></i>
+      <i nz-icon nzType="delete" nzTheme="outline"></i>
       삭제
   </button>
 </div>

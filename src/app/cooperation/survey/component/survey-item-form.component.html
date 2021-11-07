@@ -3,12 +3,12 @@
 <div class="footer">
 
     <button nz-button (click)="getSurveyItem(this.fg.get('formId').value, this.fg.get('itemId').value)">
-        <i nz-icon type="close" theme="outline"></i>
+        <i nz-icon type="close" nzTheme="outline"></i>
         조회
     </button>
     <nz-divider nzType="vertical"></nz-divider>
     <button nz-button (click)="closeForm()">
-        <i nz-icon type="close" theme="outline"></i>
+        <i nz-icon type="close" nzTheme="outline"></i>
         닫기
     </button>
     <nz-divider nzType="vertical"></nz-divider>
@@ -19,20 +19,20 @@
         (nzOnConfirm)="saveSurveyItem()"
         (nzOnCancel)="false"
         nz-button nzType="primary">
-        <i nz-icon type="save" theme="outline"></i>
+        <i nz-icon type="save" nzTheme="outline"></i>
         저장
     </button>
 
     <nz-divider nzType="vertical"></nz-divider>
 
-    <button nzType="danger"
+    <button nzDanger
         nz-popconfirm
         nzPopconfirmTitle="삭제하시겠습니까?"
         nzPopconfirmPlacement="top"
         (nzOnConfirm)="deleteSurveyItem(this.fg.get('formId').value, this.fg.get('itemId').value)"
         (nzOnCancel)="false"
         nz-button nzType="primary" nzDanger>
-        <i nz-icon type="delete" theme="outline"></i>
+        <i nz-icon type="delete" nzTheme="outline"></i>
         삭제
     </button>
 

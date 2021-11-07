@@ -2,24 +2,24 @@
 <div class="footer">
     <!--
     <button nz-button (click)="getTeam(form.get('teamId').value)">
-        <i nz-icon type="close" theme="outline"></i>
+        <i nz-icon type="close" nzTheme="outline"></i>
         조회
     </button>
     -->
     <button nz-button (click)="closeForm()">
-        <i nz-icon type="close" theme="outline"></i>
+        <i nz-icon type="close" nzTheme="outline"></i>
         닫기
     </button>
     <nz-divider nzType="vertical"></nz-divider>
     <button nz-button nzType="primary" nz-popconfirm nzTitle="저장하시겠습니까?"
         (nzOnConfirm)="saveTeam()" (nzOnCancel)="false">
-        <i nz-icon type="save" theme="outline"></i>
+        <i nz-icon type="save" nzTheme="outline"></i>
         저장
     </button>
     <nz-divider nzType="vertical"></nz-divider>
-    <button nz-button nzType="danger" nz-popconfirm nzTitle="삭제하시겠습니까?"
+    <button nz-button nzDanger nz-popconfirm nzTitle="삭제하시겠습니까?"
         (nzOnConfirm)="deleteTeam(form.get('teamId')?.value)" (nzOnCancel)="false">
-        <i nz-icon type="delete" theme="outline"></i>
+        <i nz-icon type="delete" nzTheme="outline"></i>
         삭제
     </button>
 </div>
@@ -46,7 +46,7 @@
     <nz-form-item>
         <nz-form-label nzFor="memberList" [nzXs]="formLabelXs" [nzSm]="formLabelSm">팀원</nz-form-label>
         <nz-form-control [nzXs]="formControlXs" [nzSm]="fromControlSm">
-            <nz-select formControlName="memberList" [nzSize]="'default'" nzMode="multiple" nzPlaceHolder="Please select">
+            <nz-select formControlName="memberList"  nzMode="multiple" nzPlaceHolder="Please select">
                 <nz-option *ngFor="let option of memberList" [nzLabel]="option.name" [nzValue]="option.userId"></nz-option>
             </nz-select>
         </nz-form-control>

@@ -30,7 +30,7 @@
           연관코드
         </nz-form-label>
         <nz-form-control [nzXs]="defaultControlSize.xs" [nzSm]="defaultControlSize.sm">
-          <nz-select formControlName="relCode" [nzSize]="'default'" nzShowSearch nzPlaceHolder="인사유형코드상세를 선택해주세요.">
+          <nz-select formControlName="relCode"  nzShowSearch nzPlaceHolder="인사유형코드상세를 선택해주세요.">
             <nz-option
                 *ngFor="let option of commonCodeList"
                 [nzLabel]="option.codeName"
@@ -51,7 +51,7 @@
           인사유형코드상세
         </nz-form-label>
         <nz-form-control [nzXs]="defaultControlSize.xs" [nzSm]="defaultControlSize.sm">
-          <nz-select formControlName="parentTypeId" [nzSize]="'default'" nzShowSearch nzPlaceHolder="인사유형코드상세를 선택해주세요."
+          <nz-select formControlName="parentTypeId"  nzShowSearch nzPlaceHolder="인사유형코드상세를 선택해주세요."
               (ngModelChange)="selectParentId($event)">
             <nz-option
                 *ngFor="let option of parentHrmTypeList"
@@ -68,7 +68,7 @@
       <nz-form-item class="form-item">
         <nz-form-label nzFor="parentDetailId" nzRequired [nzXs]="defaultLabelSize.xs" [nzSm]="defaultLabelSize.sm">인사유형코드상세</nz-form-label>
         <nz-form-control [nzXs]="defaultControlSize.xs" [nzSm]="defaultControlSize.sm">
-          <nz-select formControlName="parentDetailId" [nzSize]="'default'"
+          <nz-select formControlName="parentDetailId"
               nzShowSearch nzPlaceHolder="인사유형코드상세를 선택해주세요.">
             <nz-option
                 *ngFor="let option of parentHrmDetailCodeList"
@@ -89,7 +89,7 @@
       <nz-form-item class="form-item">
         <nz-form-label nzFor="childTypeId" nzRequired [nzXs]="defaultLabelSize.xs" [nzSm]="defaultLabelSize.sm">인사유형코드상세</nz-form-label>
         <nz-form-control [nzXs]="defaultControlSize.xs" [nzSm]="defaultControlSize.sm">
-          <nz-select formControlName="childTypeId" [nzSize]="'default'" nzShowSearch nzPlaceHolder="인사유형코드상세를 선택해주세요."
+          <nz-select formControlName="childTypeId"  nzShowSearch nzPlaceHolder="인사유형코드상세를 선택해주세요."
             (ngModelChange)="selectChildId($event)">
             <nz-option
                 *ngFor="let option of childHrmTypeList"
@@ -106,7 +106,7 @@
       <nz-form-item class="form-item">
         <nz-form-label nzFor="childDetailId" nzRequired [nzXs]="defaultLabelSize.xs" [nzSm]="defaultLabelSize.sm">인사유형코드상세</nz-form-label>
         <nz-form-control [nzXs]="defaultControlSize.xs" [nzSm]="defaultControlSize.sm">
-          <nz-select formControlName="childDetailId" [nzSize]="'default'" nzShowSearch nzPlaceHolder="인사유형코드상세를 선택해주세요.">
+          <nz-select formControlName="childDetailId"  nzShowSearch nzPlaceHolder="인사유형코드상세를 선택해주세요.">
             <nz-option
                 *ngFor="let option of childHrmDetailCodeList"
                 [nzLabel]="option.codeName"
@@ -127,21 +127,21 @@
   </button>
   <nz-divider nzType="vertical"></nz-divider>
   <button nz-button (click)="closeForm()">
-    <i nz-icon nzType="form" theme="outline"></i>
+    <i nz-icon nzType="form" nzTheme="outline"></i>
     닫기
   </button>
   <nz-divider nzType="vertical"></nz-divider>
   <button nz-button nzType="primary"
     nz-popconfirm nzPopconfirmTitle="저장하시겠습니까?"
     (nzOnConfirm)="submitForm()" (nzOnCancel)="false">
-    <i nz-icon nzType="save" theme="outline"></i>
+    <i nz-icon nzType="save" nzTheme="outline"></i>
     저장
   </button>
   <nz-divider nzType="vertical"></nz-divider>
-  <button nz-button nzType="danger"
+  <button nz-button nzDanger
     nz-popconfirm nzPopconfirmTitle="삭제하시겠습니까?"
     (nzOnConfirm)="deleteHrmRelationCode(fg.get('relationId')?.value)" (nzOnCancel)="false">
-    <i nz-icon nzType="delete" theme="outline"></i>
+    <i nz-icon nzType="delete" nzTheme="outline"></i>
     삭제
   </button>
 

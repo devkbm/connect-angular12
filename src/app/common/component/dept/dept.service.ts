@@ -16,7 +16,7 @@ import { GlobalProperty } from 'src/app/global-property';
 export class DeptService extends DataService {
 
   constructor(http: HttpClient, tokenExtractor: HttpXsrfTokenExtractor) {
-    super('/common/dept', http, tokenExtractor);
+    super('/api/common/dept', http, tokenExtractor);
   }
 
   getDeptList(params?: any): Observable<ResponseList<Dept>> {
@@ -33,7 +33,7 @@ export class DeptService extends DataService {
   }
 
   getDeptHierarchyList(params?: any): Observable<ResponseList<DeptHierarchy>> {
-    const url = GlobalProperty.serverUrl + '/common/depttree';
+    const url = GlobalProperty.serverUrl + '/api/common/depttree';
     const options = {
         headers: this.getAuthorizedHttpHeaders(),
         withCredentials: true,

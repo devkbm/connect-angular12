@@ -4,10 +4,13 @@ import { Injector, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClientXsrfModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { DatePipe, registerLocaleData } from '@angular/common';
+import { CommonModule, DatePipe, registerLocaleData } from '@angular/common';
 import ko from '@angular/common/locales/ko';
 
-import { IconsProviderModule } from './icons-provider.module';
+import { IconDefinition } from '@ant-design/icons-angular';
+import { NzIconModule } from 'ng-zorro-antd/icon';
+import * as AllIcons from '@ant-design/icons-angular/icons';
+
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { NZ_I18N } from 'ng-zorro-antd/i18n';
@@ -32,14 +35,21 @@ import { StaffModule } from './hrm/staff/staff.module';
 
 registerLocaleData(ko);
 
+const antDesignIcons = AllIcons as {
+     [key: string]: IconDefinition;
+};
+const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesignIcons[key])
+
+
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     AppRoutingModule,
-    IconsProviderModule,
+    NzIconModule.forRoot(icons),
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,

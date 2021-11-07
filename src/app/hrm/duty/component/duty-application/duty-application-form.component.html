@@ -28,7 +28,7 @@
         </nz-form-label>
         <nz-form-control [nzXs]="defaultControlSize.xs" [nzSm]="defaultControlSize.sm">
           <nz-select formControlName="employeeId" nzShowSearch
-              [nzSize]="'default'" [nzDisabled]="this.formType == 'MODIFY'"
+               [nzDisabled]="this.formType == 'MODIFY'"
               nzPlaceHolder="Please select">
             <nz-option *ngFor="let option of employeeList"
                 [nzLabel]="option.name + '[' + option.id + ']'"
@@ -53,7 +53,7 @@
             근태코드
         </nz-form-label>
         <nz-form-control [nzXs]="defaultControlSize.xs" [nzSm]="defaultControlSize.sm">
-          <nz-select formControlName="dutyCode" [nzSize]="'default'" nzMode="default" nzPlaceHolder="Please select">
+          <nz-select formControlName="dutyCode"  nzMode="default" nzPlaceHolder="Please select">
             <nz-option *ngFor="let option of dutyCodeList" [nzLabel]="option.dutyName" [nzValue]="option.dutyCode"></nz-option>
           </nz-select>
         </nz-form-control>
@@ -114,21 +114,21 @@
   </button>
   <nz-divider nzType="vertical"></nz-divider>
   <button nz-button (click)="closeForm()">
-    <i nz-icon nzType="form" theme="outline"></i>
+    <i nz-icon nzType="form" nzTheme="outline"></i>
     닫기
   </button>
   <nz-divider nzType="vertical"></nz-divider>
   <button nz-button nzType="primary"
     nz-popconfirm nzPopconfirmTitle="저장하시겠습니까?"
     (nzOnConfirm)="submitForm()" (nzOnCancel)="false">
-    <i nz-icon nzType="save" theme="outline"></i>
+    <i nz-icon nzType="save" nzTheme="outline"></i>
     저장
   </button>
   <nz-divider nzType="vertical"></nz-divider>
-  <button nz-button nzType="danger"
+  <button nz-button nzDanger
     nz-popconfirm nzPopconfirmTitle="삭제하시겠습니까?"
     (nzOnConfirm)= "deleteForm(fg.get('dutyId')?.value)"(nzOnCancel)="false">
-    <i nz-icon nzType="delete" theme="outline"></i>
+    <i nz-icon nzType="delete" nzTheme="outline"></i>
     삭제
   </button>
 </div>

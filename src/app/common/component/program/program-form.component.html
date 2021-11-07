@@ -46,7 +46,7 @@
         <nz-form-control [nzXs]="formControlXs" [nzSm]="formControlSm" nzErrorTip="필수 입력 값입니다.">
             <!--<input nz-input id="resourceType" formControlName="resourceType" placeholder="리소스타입을 입력해주세요.">-->
 
-            <nz-select formControlName="resourceType" [nzSize]="'default'" nzPlaceHolder="Please select">
+            <nz-select formControlName="resourceType"  nzPlaceHolder="Please select">
                 <nz-option *ngFor="let option of resourceTypeList" [nzLabel]="option.codeName" [nzValue]="option.code"></nz-option>
             </nz-select>
 
@@ -80,21 +80,21 @@
 
 <div class="footer">
     <button nz-button (click)="closeForm()">
-        <i nz-icon nzType="form" theme="outline"></i>
+        <i nz-icon nzType="form" nzTheme="outline"></i>
         닫기
     </button>
     <nz-divider nzType="vertical"></nz-divider>
     <button nz-button nzType="primary"
         nz-popconfirm nzPopconfirmTitle="저장하시겠습니까?"
         (nzOnConfirm)="submitProgram()" (nzOnCancel)="false">
-        <i nz-icon nzType="save" theme="outline"></i>
+        <i nz-icon nzType="save" nzTheme="outline"></i>
         저장
     </button>
     <nz-divider nzType="vertical"></nz-divider>
-    <button nz-button nzType="danger"
+    <button nz-button nzDanger
         nz-popconfirm nzPopconfirmTitle="삭제하시겠습니까?"
         (nzOnConfirm)="deleteProgram()" (nzOnCancel)="false">
-        <i nz-icon nzType="delete" theme="outline"></i>
+        <i nz-icon nzType="delete" nzTheme="outline"></i>
         삭제
     </button>
 

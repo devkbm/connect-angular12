@@ -59,7 +59,7 @@
           발령시사용구분
         </nz-form-label>
         <nz-form-control [nzXs]="defaultControlSize.xs" [nzSm]="defaultControlSize.sm">
-          <nz-select formControlName="appointmentType" [nzSize]="'default'" nzShowSearch nzPlaceHolder="인사유형을 선택해주세요.">
+          <nz-select formControlName="appointmentType"  nzShowSearch nzPlaceHolder="인사유형을 선택해주세요.">
             <nz-option *ngFor="let option of appointmentTypeList"
                 [nzLabel]="option.codeName"
                 [nzValue]="option.code">
@@ -101,21 +101,21 @@
   </button>
   <nz-divider nzType="vertical"></nz-divider>
   <button nz-button (click)="closeForm()">
-    <i nz-icon nzType="form" theme="outline"></i>
+    <i nz-icon nzType="form" nzTheme="outline"></i>
     닫기
   </button>
   <nz-divider nzType="vertical"></nz-divider>
   <button nz-button nzType="primary"
     nz-popconfirm nzPopconfirmTitle="저장하시겠습니까?"
     (nzOnConfirm)="submitForm()" (nzOnCancel)="false">
-    <i nz-icon nzType="save" theme="outline"></i>
+    <i nz-icon nzType="save" nzTheme="outline"></i>
     저장
   </button>
   <nz-divider nzType="vertical"></nz-divider>
-  <button nz-button nzType="danger"
+  <button nz-button nzDanger
     nz-popconfirm nzPopconfirmTitle="삭제하시겠습니까?"
     (nzOnConfirm)="deleteHrmType()" (nzOnCancel)="false">
-    <i nz-icon nzType="delete" theme="outline"></i>
+    <i nz-icon nzType="delete" nzTheme="outline"></i>
     삭제
   </button>
 

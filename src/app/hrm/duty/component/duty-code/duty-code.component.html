@@ -28,18 +28,18 @@
     <button
       nz-button
       (click)="initForm()">
-      <i nz-icon nzType="form" theme="outline"></i>
+      <i nz-icon nzType="form" nzTheme="outline"></i>
       신규
     </button>
     <nz-divider nzType="vertical"></nz-divider>
     <button
       nz-button
-      nzType="danger"
+      nzDanger
       nz-popconfirm
       nzTitle="삭제하시겠습니까?"
       (nzOnConfirm)="deleteDutyCode()"
       (nzOnCancel)="false">
-      <i nz-icon nzType="delete" theme="outline"></i>
+      <i nz-icon nzType="delete" nzTheme="outline"></i>
       삭제
     </button>
   </div>

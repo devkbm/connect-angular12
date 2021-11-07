@@ -108,7 +108,7 @@
         </nz-form-label>
 
         <nz-form-control [nzXs]="formControlXs" [nzSm]="formControlSm">
-          <nz-select formControlName="authorityList" [nzSize]="'default'" nzMode="multiple" nzPlaceHolder="Please select">
+          <nz-select formControlName="authorityList"  nzMode="multiple" nzPlaceHolder="Please select">
             <nz-option *ngFor="let option of authList" [nzLabel]="option.description" [nzValue]="option.authority"></nz-option>
           </nz-select>
         </nz-form-control>
@@ -128,7 +128,7 @@
         </nz-form-label>
 
         <nz-form-control [nzXs]="formControlXs" [nzSm]="formControlSm">
-            <nz-select formControlName="menuGroupList" [nzSize]="'default'" nzMode="multiple" nzPlaceHolder="Please select">
+            <nz-select formControlName="menuGroupList"  nzMode="multiple" nzPlaceHolder="Please select">
                 <nz-option *ngFor="let option of menuGroupList" [nzLabel]="option.menuGroupName" [nzValue]="option.menuGroupCode"></nz-option>
             </nz-select>
         </nz-form-control>
@@ -161,21 +161,21 @@
 
 <div class="footer">
   <button nz-button (click)="closeForm()">
-      <i nz-icon nzType="close" theme="outline"></i>
+      <i nz-icon nzType="close" nzTheme="outline"></i>
       닫기
   </button>
   <nz-divider nzType="vertical"></nz-divider>
   <button nz-button nzType="primary"
       nz-popconfirm nzPopconfirmTitle="저장하시겠습니까?"
       (nzOnConfirm)="registerUser()" (nzOnCancel)="false">
-      <i nz-icon nzType="save" theme="outline"></i>
+      <i nz-icon nzType="save" nzTheme="outline"></i>
       저장
   </button>
   <nz-divider nzType="vertical"></nz-divider>
   <button nz-button nzDanger="true"
       nz-popconfirm nzPopconfirmTitle="삭제하시겠습니까?"
       (nzOnConfirm)="deleteUser(this.fg.get('userId')?.value)" (nzOnCancel)="false">
-      <i nz-icon nzType="delete" theme="outline"></i>
+      <i nz-icon nzType="delete" nzTheme="outline"></i>
       삭제
   </button>
 </div>
